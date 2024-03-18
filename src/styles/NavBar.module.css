@@ -3,14 +3,20 @@
     border: 1px solid #DFE5E6;
 }
 
-a {
+.NavLink {
     color: #152E21 !important;
     font-size: 20px;
     font-weight: 600;
+    padding: 4px;
 }
 
-a:hover {
+.NavLink:hover {
     color: #258752 !important;
     font-size: 20px;
     font-weight: 600;
+    text-decoration: none;
+}
+
+.Active {
+    color: #258752 !important;
 }

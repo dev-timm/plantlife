@@ -3,3 +3,11 @@
     background-color: #F0F5F6;
     min-height: 100vh;
 }
+
+* {
+    box-sizing: border-box;
+}
+
+.Main {
+    padding-top: 80px;
+}
