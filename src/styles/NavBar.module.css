@@ -1,0 +1,16 @@
+.NavBar {
+    background-color: #fff;
+    border: 1px solid #DFE5E6;
+}
+
+a {
+    color: #152E21 !important;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+a:hover {
+    color: #258752 !important;
+    font-size: 20px;
+    font-weight: 600;
+}
