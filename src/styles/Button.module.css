@@ -9,6 +9,12 @@
     border: none;
     background-color: #258752;
   }
+
+  .Secondary {
+    color: #258752;
+    border: 1px solid #258752;
+    background-color: #fff;
+  }
   
   .Button:hover {
     background-color: #279A5C !important;

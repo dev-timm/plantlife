@@ -2,6 +2,7 @@ import React from "react";
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import logo from '../assets/logo.svg';
 import Button from 'react-bootstrap/Button'
+import btnStyles from "../styles/Button.module.css";
 import styles from '../styles/NavBar.module.css';
 import { NavLink } from 'react-router-dom';
 
@@ -19,8 +20,8 @@ const NavBar = () => {
                     <NavLink exact className={styles.NavLink} activeClassName={styles.Active} to="/">Home</NavLink>
                 </Nav>
                 <Nav>
-                    <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/login"><Button variant="success">Log In</Button></NavLink>
-                    <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/signup"><Button variant="outline-success">Sign Up</Button></NavLink>
+                    <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/signin"><Button className={`${btnStyles.Button} ${btnStyles.Primary}`}>Sign In</Button></NavLink>
+                    <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/signup"><Button className={`${btnStyles.Button} ${btnStyles.Secondary}`}>Sign Up</Button></NavLink>
                 </Nav>
             </Navbar.Collapse>
         </Container>
