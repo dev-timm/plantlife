@@ -7,8 +7,10 @@ import appStyles from "../../App.module.css";
 
 import { Form, Button, Col, Row, Container, Alert } from "react-bootstrap";
 import axios from "axios";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 const SignInForm = () => {
+    const setCurrentUser = useSetCurrentUser();
 
     const [signInData, setSignInData] = useState({
         username: '',
@@ -30,7 +32,8 @@ const SignInForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.post('/dj-rest-auth/login/', signInData);
+            const { data } = await axios.post('/dj-rest-auth/login/', signInData);
+            setCurrentUser(data.user)
             history.push("/");
         } catch (err) {
             setErrors(err.response?.data)
@@ -49,10 +52,10 @@ const SignInForm = () => {
                             <Form.Control className={styles.Input}
                                 type="text"
                                 placeholder="Username"
-                                name="username" 
+                                name="username"
                                 value={username}
                                 onChange={handleChange}
-                                />
+                            />
                         </Form.Group>
 
                         {errors.username?.map((message, idx) => (
@@ -64,10 +67,10 @@ const SignInForm = () => {
                             <Form.Control className={styles.Input}
                                 type="password"
                                 placeholder="Password"
-                                name="password" 
+                                name="password"
                                 value={password}
                                 onChange={handleChange}
-                                />                            
+                            />
                         </Form.Group>
 
                         {errors.password?.map((message, idx) => (

@@ -5,8 +5,23 @@ import Button from 'react-bootstrap/Button'
 import btnStyles from "../styles/Button.module.css";
 import styles from '../styles/NavBar.module.css';
 import { NavLink } from 'react-router-dom';
+import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 const NavBar = () => {
+    const currentUser = useCurrentUser();
+
+    const loggedIn = <>{currentUser?.username}</>
+    const loggedOut = (
+        <>
+            <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/signin">
+                <Button className={`${btnStyles.Button} ${btnStyles.Primary}`}>Sign In</Button>
+            </NavLink>
+            <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/signup">
+                <Button className={`${btnStyles.Button} ${btnStyles.Secondary}`}>Sign Up</Button>
+            </NavLink>
+        </>
+    )
+
     return <Navbar className={styles.NavBar} collapseOnSelect expand="md" fixed="top">
         <Container>
             <NavLink to="/">
@@ -20,8 +35,7 @@ const NavBar = () => {
                     <NavLink exact className={styles.NavLink} activeClassName={styles.Active} to="/">Home</NavLink>
                 </Nav>
                 <Nav>
-                    <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/signin"><Button className={`${btnStyles.Button} ${btnStyles.Primary}`}>Sign In</Button></NavLink>
-                    <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/signup"><Button className={`${btnStyles.Button} ${btnStyles.Secondary}`}>Sign Up</Button></NavLink>
+                    {currentUser ? loggedIn : loggedOut}
                 </Nav>
             </Navbar.Collapse>
         </Container>
