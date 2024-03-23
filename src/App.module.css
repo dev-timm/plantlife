@@ -20,3 +20,13 @@
     border: 1px solid #dadadf;
     width: 560px
   }
+
+.Image {
+    max-height: 40vh;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+input[type="file"] {
+    display: none;
+  }

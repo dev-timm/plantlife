@@ -1,0 +1,19 @@
+.Asset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #f1f1f1;
+  border-radius: 12px;
+}
+
+.Asset:hover {
+  background-color: #f8f8f8;
+}
+
+.Asset img {
+  margin-top: 16px;
+}
