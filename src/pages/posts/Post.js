@@ -9,6 +9,7 @@ import Avatar from "../../components/Avatar";
 
 import { ReactComponent as LikeIcon } from '../../assets/icon-like.svg';
 import { ReactComponent as CommentIcon } from '../../assets/icon-comment.svg';
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Post = (props) => {
     const {
@@ -24,10 +25,43 @@ const Post = (props) => {
         post_image,
         updated_on,
         postPage,
+        setPosts,
     } = props;
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
+
+    const handleLike = async () => {
+        try {
+            const { data } = await axiosRes.post("/likes/", { post: id });
+            setPosts((prevPosts) => ({
+                ...prevPosts,
+                results: prevPosts.results.map((post) => {
+                    return post.id === id
+                        ? { ...post, likes_count: post.likes_count + 1, like_id: data.id }
+                        : post;
+                }),
+            }));
+        } catch (err) {
+
+        }
+    }
+
+    const handleUnlike = async () => {
+        try {
+            await axiosRes.delete(`/likes/${like_id}/`)
+            setPosts((prevPosts) => ({
+                ...prevPosts,
+                results: prevPosts.results.map((post) => {
+                    return post.id === id
+                        ? { ...post, likes_count: post.likes_count - 1, like_id: null }
+                        : post;
+                }),
+            }));
+        } catch (err) {
+
+        }
+    }
 
     return (
         <Card className={styles.Post}>
@@ -61,18 +95,18 @@ const Post = (props) => {
                             <LikeIcon fill='#152E21' stroke='#152E21' />
                         </OverlayTrigger>
                     ) : like_id ? (
-                        <span onClick={() => { }}>
+                        <span onClick={handleUnlike}>
                             <LikeIcon fill='green' stroke='green' />
                         </span>
                     ) : currentUser ? (
-                        <span onClick={() => { }}>
+                        <span onClick={handleLike}>
                             <LikeIcon fill='#152E21' stroke='#152E21' />
                         </span>
                     ) : (
                         <OverlayTrigger
                             placement="top"
                             overlay={<Tooltip>Log in to like posts!</Tooltip>}>
-                            <LikeIcon fill='red' stroke='green' />
+                            <LikeIcon fill='#152E21' stroke='#152E21' />
                         </OverlayTrigger>
                     )}
                     {likes_count}
