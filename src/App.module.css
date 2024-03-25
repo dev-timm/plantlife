@@ -22,11 +22,22 @@
   }
 
 .Image {
-    max-height: 40vh;
     max-width: 100%;
     object-fit: contain;
+    border-radius: 16px;
+    
 }
 
 input[type="file"] {
     display: none;
+  }
+
+  a {
+    color: #152E21;
+    font-weight: 600;
+  }
+  
+  a:hover {
+    color: #152E21;
+    text-decoration: none;
   }

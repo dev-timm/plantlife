@@ -22,9 +22,9 @@ function PostCreateForm() {
     const [postData, setPostData] = useState({
         title: "",
         content: "",
-        image: "",
+        post_mage: "",
     });
-    const { title, content, image } = postData;
+    const { title, content, post_image } = postData;
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -38,10 +38,10 @@ function PostCreateForm() {
 
     const handleChangeImage = (event) => {
         if (event.target.files.length) {
-            URL.revokeObjectURL(image);
+            URL.revokeObjectURL(post_image);
             setPostData({
                 ...postData,
-                image: URL.createObjectURL(event.target.files[0])
+                post_image: URL.createObjectURL(event.target.files[0])
             });
         }
     };
@@ -52,7 +52,7 @@ function PostCreateForm() {
 
         formData.append("title", title);
         formData.append("content", content);
-        formData.append("image", imageInput.current.files[0]);
+        formData.append("post_image", imageInput.current.files[0]);
 
         try {
             const { data } = await axiosReq.post("/posts/", formData);
@@ -102,10 +102,10 @@ function PostCreateForm() {
                 <Col className="my-auto">
                     <Container className={`${appStyles.Card} ${styles.Container} d-flex flex-column`}>
                         <Form.Group className="text-center">
-                            {image ? (
+                            {post_image ? (
                                 <>
                                     <figure>
-                                        <Image className={appStyles.Image} src={image} rounded />
+                                        <Image className={appStyles.Image} src={post_image} rounded />
                                     </figure>
                                     <div>
                                         <Form.Label className={`${btnStyles.Button} ${btnStyles.Primary} btn`} htmlFor="image-upload">
@@ -122,7 +122,7 @@ function PostCreateForm() {
                             <Form.File id="image-upload" accept="image/*" onChange={handleChangeImage} ref={imageInput} />
 
                         </Form.Group>
-                        {errors?.image?.map((message, idx) => (
+                        {errors?.post_image?.map((message, idx) => (
                             <Alert variant="warning" key={idx}>{message}</Alert>
                         ))}
 
