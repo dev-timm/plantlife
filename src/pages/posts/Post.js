@@ -10,6 +10,8 @@ import Avatar from "../../components/Avatar";
 import { ReactComponent as LikeIcon } from '../../assets/icon-like.svg';
 import { ReactComponent as CommentIcon } from '../../assets/icon-comment.svg';
 import { axiosRes } from "../../api/axiosDefaults";
+import { MoreDropdown } from "../../components/MoreDropdown";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Post = (props) => {
     const {
@@ -30,6 +32,20 @@ const Post = (props) => {
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
+    const history = useHistory();
+
+    const handleEdit = () => {
+        history.push(`/posts/${id}/edit`)
+    }
+
+    const handleDelete = async () => {
+        try {
+            await axiosRes.delete(`/posts/${id}/`);
+            history.goBack();
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     const handleLike = async () => {
         try {
@@ -73,7 +89,12 @@ const Post = (props) => {
                     </Link>
                     <div className="d-flex align-items-center">
                         <span>{updated_on}</span>
-                        {is_owner && postPage && "..."}
+                        {is_owner && postPage && (
+                            <MoreDropdown
+                                handleEdit={handleEdit}
+                                handleDelete={handleDelete}
+                            />
+                        )}
                     </div>
                 </Media>
             </Card.Body>
