@@ -1,37 +1,13 @@
-import React, { useEffect, useState } from "react";
-import appStyles from "../../App.module.css";
+import React from "react";
 import { Container } from "react-bootstrap";
-import { axiosReq } from "../../api/axiosDefaults";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
+import { useProfileData } from "../../contexts/ProfileDataContext";
 import Profile from "./Profile";
 
 
 const PopularProfiles = ({ mobile }) => {
-    const [profileData, setProfileData] = useState({
-        popularProfiles: { results: [] },
-    });
-
-    const { popularProfiles } = profileData;
-    const currentUser = useCurrentUser();
-
-    useEffect(() => {
-        const handleMount = async () => {
-            try {
-                const { data } = await axiosReq.get(
-                    "/profiles/?ordering=-followers_count"
-                );
-                setProfileData(prevState => ({
-                    ...prevState,
-                    popularProfiles: data,
-                }))
-            } catch (err) {
-                console.log(err)
-            }
-        };
-
-        handleMount()
-    }, [currentUser]);
+    const { popularProfiles } = useProfileData();
 
     return (
         <Container className={`${appStyles.Card} ${mobile && 'd-lg-none text-center mb-3'}`}>
