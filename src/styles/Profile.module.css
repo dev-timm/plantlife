@@ -1,0 +1,9 @@
+.WordBreak {
+    word-break: break-all;
+  }
+
+.OwnerName {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+}
