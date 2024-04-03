@@ -7,3 +7,9 @@
 .DropdownItem:hover {
   background-color: #DFE5E6;
 }
+
+.Absolute {
+  position: absolute;
+  right: 0;
+  z-index: 99;
+}
