@@ -14,6 +14,8 @@ import styles from "../../styles/PostsPage.module.css";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
 import NoResults from "../../assets/no-results.svg";
 import SearchIcon from "../../assets/icon-search.svg"
 import Asset from "../../components/Asset";
@@ -26,6 +28,8 @@ function PostsPage({ message, filter = "" }) {
     const [posts, setPosts] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
+
+    const currentUser = useCurrentUser();
 
     const [query, setQuery] = useState("");
 
@@ -48,7 +52,7 @@ function PostsPage({ message, filter = "" }) {
         return () => {
             clearTimeout(timer);
         };
-    }, [filter, query, pathname]);
+    }, [filter, query, pathname, currentUser]);
 
 
     return (
