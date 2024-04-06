@@ -5,3 +5,10 @@
   border: 1px solid #dadadf;
   margin-bottom: 24px;
 }
+
+svg:hover {
+  path {
+    cursor: pointer;
+    fill: #279A5C;
+  }
+}
