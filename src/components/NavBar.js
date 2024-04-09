@@ -33,7 +33,7 @@ const NavBar = () => {
             <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/saved">
                 Saved Posts
             </NavLink>
-            <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/users">
+            <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/profiles">
                 Plant Lovers
             </NavLink>
         </Nav>

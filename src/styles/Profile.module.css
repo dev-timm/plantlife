@@ -1,9 +1,20 @@
 .WordBreak {
-    word-break: break-all;
-  }
+  word-break: break-all;
+}
 
-.OwnerName {
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0;
+.ProfileName {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.PopularName {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.Divider {
+  border-bottom: 1px solid #dadadf;
+
 }
