@@ -9,6 +9,7 @@ import Avatar from "../../components/Avatar";
 
 import { ReactComponent as LikeIcon } from '../../assets/icon-like.svg';
 import { ReactComponent as CommentIcon } from '../../assets/icon-comment.svg';
+import { ReactComponent as BookmarkIcon } from '../../assets/icon-bookmark.svg';
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
@@ -28,6 +29,7 @@ const Post = (props) => {
         updated_on,
         postPage,
         setPosts,
+        bookmark_id,
     } = props;
 
     const currentUser = useCurrentUser();
@@ -46,6 +48,38 @@ const Post = (props) => {
             console.log(err);
         }
     };
+
+    const handleBookmark = async () => {
+        try {
+            const { data } = await axiosRes.post("/bookmarks/", { post: id });
+            setPosts((prevPosts) => ({
+                ...prevPosts,
+                results: prevPosts.results.map((post) => {
+                    return post.id === id
+                        ? { ...post, bookmark_id: data.id }
+                        : post;
+                }),
+            }));
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    const handleUnbookmark = async () => {
+        try {
+            await axiosRes.delete(`/bookmarks/${bookmark_id}/`)
+            setPosts((prevPosts) => ({
+                ...prevPosts,
+                results: prevPosts.results.map((post) => {
+                    return post.id === id
+                        ? { ...post, bookmark_id: null }
+                        : post;
+                }),
+            }));
+        } catch (err) {
+
+        }
+    }
 
     const handleLike = async () => {
         try {
@@ -127,7 +161,7 @@ const Post = (props) => {
                         <OverlayTrigger
                             placement="top"
                             overlay={<Tooltip>Log in to like posts!</Tooltip>}>
-                            <LikeIcon fill='#152E21'/>
+                            <LikeIcon fill='#152E21' />
                         </OverlayTrigger>
                     )}
                     {likes_count}
@@ -135,6 +169,23 @@ const Post = (props) => {
                         <CommentIcon fill='#152E21' />
                     </Link>
                     {comments_count}
+                    <div className=" d-inline float-right">
+                        {bookmark_id ? (
+                            <span onClick={handleUnbookmark}>
+                                <BookmarkIcon fill='green' stroke='green' />
+                            </span>
+                        ) : currentUser ? (
+                            <span onClick={handleBookmark}>
+                                <BookmarkIcon fill='#152E21' />
+                            </span>
+                        ) : (
+                            <OverlayTrigger
+                                placement="top"
+                                overlay={<Tooltip>Log in to bookmark posts!</Tooltip>}>
+                                <BookmarkIcon fill='#152E21' />
+                            </OverlayTrigger>
+                        )}
+                    </div>
                 </div>
             </Card.Body>
         </Card>
