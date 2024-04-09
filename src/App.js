@@ -15,8 +15,11 @@ import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import { NotFound } from './components/NotFound';
 import AllProfiles from './pages/profiles/AllProfiles';
+import { useCurrentUser } from './contexts/CurrentUserContext';
 
 function App() {
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || "";
 
   return (
     <div className={styles.App}>
@@ -28,6 +31,15 @@ function App() {
             path="/"
             render={() => (
               <PostsPage message="No results found. Adjust the search keyword." />
+            )}
+          />
+          <Route
+            exact
+            path="/bookmarked"
+            render={() => (
+              <PostsPage message="No results found. Adjust the search keyword or bookmark a post"
+                filter={`bookmarks__owner__profile=${profile_id}&ordering=-bookmarks__created_at&`}
+              />
             )}
           />
           <Route exact path='/signin' render={() => <SignInForm />} />

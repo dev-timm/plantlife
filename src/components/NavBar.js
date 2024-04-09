@@ -30,8 +30,8 @@ const NavBar = () => {
     const loggedIn = <>
         <Nav className="mr-auto">
             <NavLink exact className={styles.NavLink} activeClassName={styles.Active} to="/">Home</NavLink>
-            <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/saved">
-                Saved Posts
+            <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/bookmarked">
+                Bookmarks
             </NavLink>
             <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/profiles">
                 Plant Lovers
