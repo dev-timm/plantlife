@@ -13,6 +13,11 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosReq } from "../../api/axiosDefaults";
 import NoResults from "../../assets/no-results.svg";
 
+import Image from 'react-bootstrap/Image'
+import styles from "../../styles/AllProfiles.module.css";
+import SearchIcon from "../../assets/icon-search.svg"
+import { Form } from "react-bootstrap";
+
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 
@@ -40,7 +45,7 @@ const AllProfiles = ({ message, filter = "" }) => {
         const timer = setTimeout(() => {
             fetchProfiles();
         }, 1000);
-
+        
         return () => {
             clearTimeout(timer);
         };
@@ -50,14 +55,27 @@ const AllProfiles = ({ message, filter = "" }) => {
         <Row className="h-100">
             <Col className="py-2 p-0 p-lg-2" lg={8}>
                 <PopularProfiles mobile />
+                <Image className={styles.SearchIcon} src={SearchIcon} />
+                <Form
+                    className={styles.SearchBar}
+                    onSubmit={(event) => event.preventDefault()}
+                >
+                    <Form.Control
+                        value={query}
+                        onChange={(event) => setQuery(event.target.value)}
+                        type="text"
+                        className="mr-sm-2"
+                        placeholder="Search for users"                        
+                    />
+                </Form>
                 {hasLoaded ? (
                     <>
                         <Container className={`${appStyles.Card}`}>
-                        <h1>Plant Lovers</h1>
+                            <h1>Plant Lovers</h1>
                             {profiles.results.length ? (
                                 <InfiniteScroll
                                     children={profiles.results.map(profile => (
-                                        <Profile key={profile.id} imageSize={48} profile={profile} {...profile} setProfiles={setProfiles} />
+                                        <Profile key={profile.id} profile={profile} {...profile} setProfiles={setProfiles} />
                                     ))}
                                     dataLength={profiles.results.length}
                                     loader={<Asset spinner />}
