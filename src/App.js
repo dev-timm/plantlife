@@ -35,6 +35,15 @@ function App() {
           />
           <Route
             exact
+            path="/Feed"
+            render={() => (
+              <PostsPage message="No results found. Adjust the search or follow a user."
+                filter={`owner__followed__owner__profile=${profile_id}&`}
+              />
+            )}
+          />
+          <Route
+            exact
             path="/bookmarked"
             render={() => (
               <PostsPage message="No results found. Adjust the search keyword or bookmark a post"

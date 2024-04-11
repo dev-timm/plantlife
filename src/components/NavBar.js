@@ -15,7 +15,7 @@ const NavBar = () => {
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
 
-    const {expanded, setExpanded, ref} = useClickOutsideToggle();
+    const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
     const handleSignOut = async () => {
         try {
@@ -30,6 +30,9 @@ const NavBar = () => {
     const loggedIn = <>
         <Nav className="mr-auto">
             <NavLink exact className={styles.NavLink} activeClassName={styles.Active} to="/">Home</NavLink>
+            <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/feed">
+                Feed
+            </NavLink>
             <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/bookmarked">
                 Bookmarks
             </NavLink>
