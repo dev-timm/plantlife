@@ -21,3 +21,19 @@
 .Active {
     color: #258752 !important;
 }
+
+.DropdownItem {
+    padding-left: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.DropdownItem:hover {
+    background-color: #DFE5E6;
+}
+
+.Absolute {
+    position: absolute;
+    right: 0;
+    z-index: 99;
+}

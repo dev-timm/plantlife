@@ -11,11 +11,25 @@ import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
 
+
+import Dropdown from "react-bootstrap/Dropdown";
+
 const NavBar = () => {
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
 
     const { expanded, setExpanded, ref } = useClickOutsideToggle();
+
+    const NavBarProfile = React.forwardRef(({ onClick }, ref) => (
+        <div
+            ref={ref}
+            onClick={(e) => {
+                e.preventDefault();
+                onClick(e);
+            }} >
+            <Avatar src={currentUser?.profile_image} height={40} />
+        </div>
+    ));
 
     const handleSignOut = async () => {
         try {
@@ -41,16 +55,19 @@ const NavBar = () => {
             </NavLink>
         </Nav>
         <Nav>
-            <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
-                Sign Out
-            </NavLink>
             <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/posts/create">
                 <Button className={`${btnStyles.Button} ${btnStyles.Primary}`}>Add a Post</Button>
             </NavLink>
-            <NavLink className={styles.NavLink} to={`/profiles/${currentUser?.profile_id}`} onClick={() => { }}>
-                <Avatar src={currentUser?.profile_image} height={40} />
-            </NavLink>
         </Nav>
+        <Dropdown className="ml-2" drop="left">
+            <Dropdown.Toggle as={NavBarProfile} />
+            <Dropdown.Menu popperConfig={{ strategy: "fixed" }}>
+                <Dropdown.Item className={styles.DropdownItem} href={`/profiles/${currentUser?.profile_id}`} aria-label="View Profile">
+                    View Profile</Dropdown.Item>
+                <Dropdown.Item className={styles.DropdownItem} onClick={handleSignOut} aria-label="Signout">
+                    Sign Out</Dropdown.Item>
+            </Dropdown.Menu>
+        </Dropdown>
     </>;
     const loggedOut = (
         <>
