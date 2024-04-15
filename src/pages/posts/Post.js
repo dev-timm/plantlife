@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../../styles/Post.module.css";
 import appStyles from "../../App.module.css";
 
@@ -7,12 +7,16 @@ import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 
+import ReportCreateForm from "./ReportCreateForm";
+
 import { ReactComponent as LikeIcon } from '../../assets/icon-like.svg';
 import { ReactComponent as CommentIcon } from '../../assets/icon-comment.svg';
 import { ReactComponent as BookmarkIcon } from '../../assets/icon-bookmark.svg';
-import { axiosRes } from "../../api/axiosDefaults";
+import { ReactComponent as ReportIcon } from '../../assets/icon-report.svg';
+import { axiosRes, axiosReq } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import Modal from 'react-bootstrap/Modal'
 
 const Post = (props) => {
     const {
@@ -35,6 +39,9 @@ const Post = (props) => {
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
     const history = useHistory();
+
+    const [modalShow, setModalShow] = useState(false);
+    const [isPostReported, setIsPostReported] = useState(false);
 
     const handleEdit = () => {
         history.push(`/posts/${id}/edit`)
@@ -77,7 +84,7 @@ const Post = (props) => {
                 }),
             }));
         } catch (err) {
-
+            console.log(err)
         }
     }
 
@@ -109,9 +116,87 @@ const Post = (props) => {
                 }),
             }));
         } catch (err) {
-
+            console.log(err);
         }
     }
+
+    useEffect(() => {
+        const checkReports = async () => {
+            try {
+                const { data } = await axiosReq.get("/reports/")
+                const checkReportPresence = data.filter(report => report.post === id && report.owner === currentUser?.username)
+                if (checkReportPresence.length) {
+                    setIsPostReported(true)
+                }
+            } catch (err) {
+                console.log(err)
+            }
+        }
+        checkReports();
+    }, [currentUser?.username, id]);
+
+    const showReportIcon = () => {
+        if (is_owner) {
+            return (
+                <OverlayTrigger
+                    placement="top"
+                    overlay={<Tooltip>You can't report your own post!</Tooltip>}>
+                    <ReportIcon fill='green'/>
+                </OverlayTrigger>
+            )
+        } else if (currentUser && !is_owner) {
+            if (isPostReported === true) {
+                return (
+                    <OverlayTrigger
+                        placement="top"
+                        overlay={<Tooltip>You've already reported this post!</Tooltip>}>
+                        <ReportIcon fill='green'/>
+                    </OverlayTrigger>
+                )
+            } else {
+                return (<ReportIcon fill='#152E21' onClick={() => setModalShow(true)}/>)
+            }
+        } else {
+            return (
+                <OverlayTrigger
+                    placement="top"
+                    overlay={<Tooltip>Log in to report posts!</Tooltip>}>
+                    <ReportIcon fill='#152E21'/>
+                </OverlayTrigger>
+            )     
+        }
+    }
+
+    function ReportModal(props) {
+        return (
+            <Modal
+                {...props}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title id="contained-modal-title-vcenter">
+                        Report Post
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="mt-2">
+                    <h5>Report "{title}"</h5>
+                    <p>
+                    Are you sure you want to report this post? This action can't be undone!
+                    </p>
+                    <ReportCreateForm
+                        owner={owner}
+                        post={id}
+                        setModalShow={setModalShow}
+                        setIsPostReported={setIsPostReported}
+                    />
+                </Modal.Body>
+            </Modal>
+        );
+    }
+
+
 
     return (
         <Card className={styles.Post}>
@@ -122,7 +207,8 @@ const Post = (props) => {
                         {owner}
                     </Link>
                     <div className="d-flex align-items-center">
-                        <span>{updated_on}</span>
+                        <span className="mr-3">{updated_on}</span>
+                        {showReportIcon()}
                         {is_owner && postPage && (
                             <MoreDropdown
                                 handleEdit={handleEdit}
@@ -130,6 +216,10 @@ const Post = (props) => {
                             />
                         )}
                     </div>
+                    <ReportModal
+                        show={modalShow}
+                        onHide={() => setModalShow(false)}
+                    />
                 </Media>
             </Card.Body>
             <Card.Body className="px-0">
