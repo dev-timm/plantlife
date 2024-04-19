@@ -53,12 +53,25 @@ const NavBar = () => {
             <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/profiles">
                 Plant Lovers
             </NavLink>
+            <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/advertisements">
+                Marketplace
+            </NavLink>
         </Nav>
-        <Nav>
+        {/* <Nav>
             <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/posts/create">
                 <Button className={`${btnStyles.Button} ${btnStyles.Primary}`}>Add a Post</Button>
             </NavLink>
-        </Nav>
+        </Nav> */}
+        <Dropdown>
+            <Dropdown.Toggle  className={`${btnStyles.Button} ${btnStyles.Primary} mr-4`} id="dropdown-basic">
+                Plant a ...
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+                <Dropdown.Item className={styles.DropdownItem} href="/posts/create">Post</Dropdown.Item>
+                <Dropdown.Item className={styles.DropdownItem} href="/advertisements/create">Advertisement</Dropdown.Item>
+            </Dropdown.Menu>
+        </Dropdown>
         <Dropdown className="ml-2" drop="left">
             <Dropdown.Toggle as={NavBarProfile} />
             <Dropdown.Menu popperConfig={{ strategy: "fixed" }}>
