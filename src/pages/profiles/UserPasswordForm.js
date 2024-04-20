@@ -12,6 +12,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import styles from "../../styles/UsernamePasswordEditForm.module.css";
+import formStyles from "../../styles/Form.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
@@ -54,14 +55,14 @@ const UserPasswordForm = () => {
   };
 
   return (
-    <Row className={styles.Row}>
+    <Row className={formStyles.Row}>
       <Col className="my-auto">
         <Container className={appStyles.Card}>
           <h1 className={styles.Title}>Change Password</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group>
-              <Form.Label className={styles.Label}>New Password</Form.Label>
-              <Form.Control className={styles.Input}
+              <Form.Label className={formStyles.Label}>New Password</Form.Label>
+              <Form.Control className={formStyles.Input}
                 placeholder="new password"
                 type="password"
                 value={new_password1}
@@ -77,8 +78,8 @@ const UserPasswordForm = () => {
             ))}
 
             <Form.Group>
-              <Form.Label className={styles.Label}>Confirm password</Form.Label>
-              <Form.Control className={styles.Input}
+              <Form.Label className={formStyles.Label}>Confirm password</Form.Label>
+              <Form.Control className={formStyles.Input}
                 placeholder="confirm new password"
                 type="password"
                 value={new_password2}

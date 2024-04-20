@@ -15,7 +15,7 @@ import {
     useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
 
-import styles from "../../styles/ProfileEditForm.module.css";
+import styles from "../../styles/Form.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 

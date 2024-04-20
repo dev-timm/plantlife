@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
 import styles from "../../styles/SignInUpForm.module.css";
+import formStyles from "../../styles/Form.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
@@ -45,15 +46,15 @@ const SignInForm = () => {
     };
 
     return (
-        <Row className={styles.Row}>
+        <Row className={formStyles.Row}>
             <Col className="my-auto">
                 <Container className={appStyles.Card}>
                     <h1 className={styles.Title}>Sign In</h1>
 
                     <Form onSubmit={handleSubmit}>
                         <Form.Group controlId="username">
-                            <Form.Label className={styles.Label}>username</Form.Label>
-                            <Form.Control className={styles.Input}
+                            <Form.Label className={formStyles.Label}>username</Form.Label>
+                            <Form.Control className={formStyles.Input}
                                 type="text"
                                 placeholder="Username"
                                 name="username"
@@ -67,8 +68,8 @@ const SignInForm = () => {
                         ))}
 
                         <Form.Group controlId="password">
-                            <Form.Label className={styles.Label}>Password</Form.Label>
-                            <Form.Control className={styles.Input}
+                            <Form.Label className={formStyles.Label}>Password</Form.Label>
+                            <Form.Control className={formStyles.Input}
                                 type="password"
                                 placeholder="Password"
                                 name="password"

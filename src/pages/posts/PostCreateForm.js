@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 
 import Upload from "../../assets/upload.svg";
 
-import styles from "../../styles/PostCreateEditForm.module.css";
+import styles from "../../styles/Form.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";

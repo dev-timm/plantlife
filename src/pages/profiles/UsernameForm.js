@@ -15,6 +15,7 @@ import {
 } from "../../contexts/CurrentUserContext";
 
 import styles from "../../styles/UsernamePasswordEditForm.module.css";
+import formStyles from "../../styles/Form.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
@@ -54,14 +55,14 @@ const UsernameForm = () => {
   };
 
   return (
-    <Row className={styles.Row}>
+    <Row className={formStyles.Row}>
       <Col className="my-auto">
         <Container className={appStyles.Card}>
           <h1 className={styles.Title}>Change Username</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group>
-              <Form.Label className={styles.Label}>Username</Form.Label>
-              <Form.Control className={styles.Input}
+              <Form.Label className={formStyles.Label}>Username</Form.Label>
+              <Form.Control className={formStyles.Input}
                 placeholder="username"
                 type="text"
                 value={username}
