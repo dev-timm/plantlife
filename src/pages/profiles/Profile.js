@@ -18,15 +18,15 @@ export const Profile = (props) => {
 
     return (
         <Row noGutters className={`${styles.Divider} align-items-center pb-4 pt-4`}>
-            <Col lg={1}>
+            <Col sm={1} xs={2}>
                 <Link className="align-self-center" to={`/profiles/${id}`}>
                     <Avatar src={profile_image} height={imageSize} />
                 </Link>
             </Col>
-            <Col lg={9} className="pl-2">
+            <Col sm={8} xs={7} className="pl-2">
                 <p className={styles.ProfileName}>{owner}</p>
             </Col>
-            <Col lg={2}>
+            <Col sm={3} xs={3} className="text-right">
                 <Link to={`/profiles/${id}`}>View Profile</Link>
             </Col>
         </Row>
