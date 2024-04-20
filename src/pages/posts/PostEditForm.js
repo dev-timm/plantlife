@@ -114,7 +114,7 @@ function PostEditForm() {
 
     return (
         <Form onSubmit={handleSubmit}>
-            <Row className={styles.Row}>
+            <Row className={`${styles.Row} mt-4`}>
                 <Col className="my-auto">
                     <Container className={`${appStyles.Card} ${styles.Container} d-flex flex-column`}>
                         <Form.Group className="text-center">

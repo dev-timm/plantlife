@@ -52,7 +52,7 @@ const AllProfiles = ({ message, filter = "" }) => {
     }, [filter, query, pathname, currentUser]);
 
     return (
-        <Row className="h-100">
+        <Row className="h-100 mt-4">
             <Col className="py-2 p-0 p-lg-2" lg={8}>
                 <PopularProfiles mobile />
                 <Image className={styles.SearchIcon} src={SearchIcon} />

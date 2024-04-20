@@ -57,9 +57,9 @@ function AdvertisementsPage({ message, filter = "" }) {
     return (
         <Row className="h-100">
             <Col className="py-2 p-0 p-lg-2" lg={8}>
+                <Row className="mt-4"><PopularProfiles mobile /></Row>
                 <Row>
                     <Col>
-                        <PopularProfiles mobile />
                         <Image className={styles.SearchIcon} src={SearchIcon} />
                         <Form
                             className={styles.SearchBar}
@@ -111,7 +111,7 @@ function AdvertisementsPage({ message, filter = "" }) {
                     </Container>
                 )}
             </Col>
-            <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+            <Col md={4} className="d-none d-lg-block mt-4 p-0 p-lg-2">
                 <PopularProfiles />
             </Col>
         </Row>

@@ -89,7 +89,7 @@ const NavBar = () => {
         </>
     )
 
-    return <Navbar expanded={expanded} className={styles.NavBar} collapseOnSelect expand="md" fixed="top">
+    return <Navbar expanded={expanded} className={styles.NavBar} collapseOnSelect expand="lg" fixed="top">
         <Container>
             <NavLink to="/">
                 <Navbar.Brand>

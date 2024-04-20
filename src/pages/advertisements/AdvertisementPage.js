@@ -27,7 +27,7 @@ function AdvertisementPage() {
     }, [id]);
 
     return (
-        <Row className="h-100">
+        <Row className="h-100 mt-4">
             <Col className="py-2 p-0 p-lg-2" lg={8}>
                 <PopularProfiles mobile />
                 <Advertisement {...advertisement.results[0]} setPosts={setAdvertisement} AdvertisementPage />
