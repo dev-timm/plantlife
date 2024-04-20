@@ -43,7 +43,6 @@ const NavBar = () => {
 
     const loggedIn = <>
         <Nav className="mr-auto">
-            <NavLink exact className={styles.NavLink} activeClassName={styles.Active} to="/">Home</NavLink>
             <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/feed">
                 Feed
             </NavLink>
@@ -57,11 +56,6 @@ const NavBar = () => {
                 Marketplace
             </NavLink>
         </Nav>
-        {/* <Nav>
-            <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/posts/create">
-                <Button className={`${btnStyles.Button} ${btnStyles.Primary}`}>Add a Post</Button>
-            </NavLink>
-        </Nav> */}
         <Dropdown>
             <Dropdown.Toggle  className={`${btnStyles.Button} ${btnStyles.Primary} mr-4`} id="dropdown-basic">
                 Plant a ...
