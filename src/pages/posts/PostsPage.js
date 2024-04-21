@@ -112,7 +112,7 @@ function PostsPage({ message, filter = "" }) {
                         </Container>
                     )}
                 </Col>
-                <Col md={4} className="d-none d-lg-block mt-4 p-0 p-lg-2">
+                <Col lg={4} className="d-none d-lg-block mt-4 p-0 p-lg-2">
                     <PopularProfiles />
                 </Col>
             </Row>

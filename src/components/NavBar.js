@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import logo from '../assets/logo.svg';
 import Button from 'react-bootstrap/Button'
@@ -41,6 +42,21 @@ const NavBar = () => {
         }
     };
 
+    const [width, setWidth] = useState(0)
+
+    useEffect(() => {
+        const handleResize = () => setWidth(window.innerWidth)
+        window.addEventListener("resize", handleResize)
+        handleResize()
+
+        return () => {
+            window.removeEventListener("resize", handleResize)
+        }
+    }, [setWidth])
+
+    console.log(width)
+
+
     const loggedIn = <>
         <Nav className="mr-auto">
             <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/feed">
@@ -56,25 +72,46 @@ const NavBar = () => {
                 Marketplace
             </NavLink>
         </Nav>
-        <Dropdown>
-            <Dropdown.Toggle  className={`${btnStyles.Button} ${btnStyles.Primary} mr-4`} id="dropdown-basic">
-                Plant a ...
-            </Dropdown.Toggle>
 
-            <Dropdown.Menu>
-                <Dropdown.Item className={styles.DropdownItem} href="/posts/create">Post</Dropdown.Item>
-                <Dropdown.Item className={styles.DropdownItem} href="/advertisements/create">Advertisement</Dropdown.Item>
-            </Dropdown.Menu>
-        </Dropdown>
-        <Dropdown className="ml-2" drop="left">
-            <Dropdown.Toggle as={NavBarProfile} />
-            <Dropdown.Menu popperConfig={{ strategy: "fixed" }}>
-                <Dropdown.Item className={styles.DropdownItem} href={`/profiles/${currentUser?.profile_id}`} aria-label="View Profile">
-                    View Profile</Dropdown.Item>
-                <Dropdown.Item className={styles.DropdownItem} onClick={handleSignOut} aria-label="Signout">
-                    Sign Out</Dropdown.Item>
-            </Dropdown.Menu>
-        </Dropdown>
+        {width > 991 ? (
+            <>
+                <Dropdown className="py-2">
+                    <Dropdown.Toggle className={`${btnStyles.Button} ${btnStyles.Primary} mr-4`} id="dropdown-basic">
+                        Plant a ...
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                        <Dropdown.Item className={styles.DropdownItem} href="/posts/create">Post</Dropdown.Item>
+                        <Dropdown.Item className={styles.DropdownItem} href="/advertisements/create">Advertisement</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+                <Dropdown className={`${styles.ProfileDropDown} py-2`}>
+                    <Dropdown.Toggle as={NavBarProfile} />
+                    <Dropdown.Menu popperConfig={{ strategy: "fixed" }}>
+                        <Dropdown.Item className={styles.DropdownItem} href={`/profiles/${currentUser?.profile_id}`} aria-label="View Profile">
+                            View Profile</Dropdown.Item>
+                        <Dropdown.Item className={styles.DropdownItem} onClick={handleSignOut} aria-label="Signout">
+                            Sign Out</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+            </>
+        ) : (
+            <>
+                <div className="mt-5">
+                    <NavLink className={`${btnStyles.Button} ${btnStyles.Primary} mr-2`} to="/posts/create">Plant Post</NavLink>
+                    <NavLink className={`${btnStyles.Button} ${btnStyles.Secondary}`} to="/advertisements/create">Plant Advertisement</NavLink>
+                </div>
+                <div className="mt-3">
+                    <NavLink className={`${styles.NavLink} d-block`} activeClassName={styles.Active} to={`/profiles/${currentUser?.profile_id}`}>
+                        View profile
+                    </NavLink>
+                    <NavLink className={`${styles.NavLink} d-block`} to="/" onClick={handleSignOut}>
+                        Sign out
+                    </NavLink>
+                </div>
+            </>
+        )}
+
     </>;
     const loggedOut = (
         <>
@@ -83,7 +120,7 @@ const NavBar = () => {
                     <Button className={`${btnStyles.Button} ${btnStyles.Primary}`}>Sign In</Button>
                 </NavLink>
                 <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/signup">
-                    <Button className={`${btnStyles.Button} ${btnStyles.Secondary}`}>Sign Up</Button>
+                    <Button className={`${btnStyles.Button} ${btnStyles.Secondary}  mt-2`}>Sign Up</Button>
                 </NavLink>
             </Nav>
         </>
@@ -96,7 +133,7 @@ const NavBar = () => {
                     <img src={logo} alt="logo" height="32" />
                 </Navbar.Brand>
             </NavLink>
-            <Navbar.Toggle ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="responsive-navbar-nav" />
+            <Navbar.Toggle ref={ref} onClick={() => { setExpanded(!expanded) }} aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav" className="text-left">
                 {currentUser ? loggedIn : loggedOut}
             </Navbar.Collapse>

@@ -11,6 +11,14 @@
     margin-right: 8px;
 }
 
+.LogOut {
+    color: #152E21 !important;
+}
+
+.LogOut:current {
+    color: #152E21 !important;
+}
+
 .NavLink:hover {
     color: #258752 !important;
     font-size: 20px;
@@ -36,4 +44,8 @@
     position: absolute;
     right: 0;
     z-index: 99;
+}
+
+.ProfileDropDown {
+    cursor: pointer;
 }
