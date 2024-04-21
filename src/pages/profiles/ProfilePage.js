@@ -60,14 +60,14 @@ function ProfilePage() {
 
     const mainProfile = (
         <>
-            <Row noGutters className="align-items-center">
-                <Col lg={2}>
+            <Row noGutters className="align-items-center mb-4">
+                <Col md={2} xs={3}>
                     <Image className={styles.ProfileImage} roundedCircle src={profile?.profile_image} />
                 </Col>
-                <Col lg={8}>
+                <Col md={5} xs={4}>
                     <p className={styles.ProfileOwner}>{profile?.owner}</p>
                 </Col>
-                <Col lg={2} className="text-lg-right">
+                <Col md={5} xs={5} className="text-right">
                     {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
                     {currentUser && !is_owner &&
                         (profile?.following_id ? (
@@ -84,15 +84,15 @@ function ProfilePage() {
             <Row className="mt-5">
                 <Col lg={6}>
                     <Row className="justify-content-center">
-                        <Col xs={3} className="StatCol">
+                        <Col xs={4} className="StatCol">
                             <div className={styles.Stats}>{profile?.posts_count}</div>
                             <div className={styles.StatsLabel}>Posts</div>
                         </Col>
-                        <Col xs={3}>
+                        <Col xs={4}>
                             <div className={styles.Stats}>{profile?.followers_count}</div>
                             <div className={styles.StatsLabel}>Followers</div>
                         </Col>
-                        <Col xs={3}>
+                        <Col xs={4}>
                             <div className={styles.Stats}>{profile?.following_count}</div>
                             <div className={styles.StatsLabel}>Following</div>
                         </Col>
