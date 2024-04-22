@@ -120,7 +120,7 @@ const NavBar = () => {
                     <Button className={`${btnStyles.Button} ${btnStyles.Primary}`}>Sign In</Button>
                 </NavLink>
                 <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/signup">
-                    <Button className={`${btnStyles.Button} ${btnStyles.Secondary}  mt-2`}>Sign Up</Button>
+                    <Button className={`${btnStyles.Button} ${btnStyles.Secondary}`}>Sign Up</Button>
                 </NavLink>
             </Nav>
         </>
