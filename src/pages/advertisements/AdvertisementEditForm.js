@@ -161,7 +161,7 @@ function AdvertisementEditForm() {
     );
 
     return (
-        <Form onSubmit={{handleSubmit}}>
+        <Form onSubmit={handleSubmit}>
             <Row className={`${styles.Row} mt-4`}>
                 <Col className="my-auto">
                     <Container className={`${appStyles.Card} ${styles.Container} d-flex flex-column`}>

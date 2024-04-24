@@ -91,7 +91,7 @@ const SignInForm = () => {
                         ))}
 
                         <Container>
-                            <Link className={styles.Link} to="/signin">
+                            <Link className={styles.Link} to="/signup">
                                 Don't have an account yet? <span>Sign Up here</span>
                             </Link>
                         </Container>
