@@ -242,7 +242,7 @@ const Post = (props) => {
                         {is_owner && postPage && (
                             <MoreDropdown
                                 handleEdit={handleEdit}
-                                handleDelete={() => setDeleteModalShow(true)}
+                                handleDeleteModal={() => setDeleteModalShow(true)}
                             />
                         )}
                     </div>

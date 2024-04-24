@@ -20,7 +20,7 @@ const MeatballMenu = React.forwardRef(({ onClick }, ref) => (
     </div>
 ));
 
-export const MoreDropdown = ({ handleEdit, handleDelete }) => {
+export const MoreDropdown = ({ handleEdit, handleDeleteModal }) => {
     return (
         <Dropdown className="ml-2" drop="left">
             <Dropdown.Toggle as={MeatballMenu} />
@@ -33,7 +33,7 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
                     <EditIcon /> Edit</Dropdown.Item>
                 <Dropdown.Item
                     className={styles.DropdownItem}
-                    onClick={handleDelete}
+                    onClick={handleDeleteModal}
                     aria-label="delete"
                 >
                     <DeleteIcon /> Delete</Dropdown.Item>

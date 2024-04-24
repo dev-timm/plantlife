@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 import styles from "../../styles/Advertisement.module.css";
 import appStyles from "../../App.module.css";
+import btnStyles from "../../styles/Button.module.css";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import Button from "react-bootstrap/Button";
 
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import Modal from 'react-bootstrap/Modal'
 
 const Advertisement = (props) => {
     const {
@@ -33,6 +36,7 @@ const Advertisement = (props) => {
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
+    const [deleteModalShow, setDeleteModalShow] = useState(false);
     const history = useHistory();
 
     const handleEdit = () => {
@@ -48,6 +52,33 @@ const Advertisement = (props) => {
         }
     };
 
+    function DeleteModal(props) {
+        return (
+            <Modal
+                {...props}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title id="contained-modal-title-vcenter">
+                        Delete Advertisement
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="mt-2">
+                    <h5>Delete "{title}"</h5>
+                    <p>
+                        Are you sure you want to delete this advertisement? This action can't be undone!
+                    </p>
+                    <Button className={`${btnStyles.Button} ${btnStyles.Primary} float-right ml-2`} onClick={handleDelete} >
+                        Delete
+                    </Button>
+                    <Button className={`${btnStyles.Button} ${btnStyles.Secondary} float-right ml-2`} onClick={() => setDeleteModalShow(false)}>Cancel</Button>
+                </Modal.Body>
+            </Modal>
+        );
+    }
+
     return (
         <Card className={styles.Advertisement}>
             <Card.Body className="px-0">
@@ -61,10 +92,14 @@ const Advertisement = (props) => {
                         {is_owner && (
                             <MoreDropdown
                                 handleEdit={handleEdit}
-                                handleDelete={handleDelete}
+                                handleDeleteModal={() => setDeleteModalShow(true)}
                             />
                         )}
                     </div>
+                    <DeleteModal
+                        show={deleteModalShow}
+                        onHide={() => setDeleteModalShow(false)}
+                    />
                 </Media>
             </Card.Body>
             <Card.Body className="px-0">
@@ -82,13 +117,13 @@ const Advertisement = (props) => {
                         <h6>Availability</h6>
                         {availability === "available" ? (
                             <Card.Text className={styles.Available}>Available</Card.Text>
+                        ) : (
+                            availability === "reserved" ? (
+                                <Card.Text className={styles.Reserved}>Reserved</Card.Text>
                             ) : (
-                                availability === "reserved" ? (
-                                    <Card.Text className={styles.Reserved}>Reserved</Card.Text>
-                                ) : (
-                                    <Card.Text className={styles.Unavailable}>Not Available</Card.Text>
-                                )
+                                <Card.Text className={styles.Unavailable}>Not Available</Card.Text>
                             )
+                        )
                         }
                     </Col>
                 </Row>
