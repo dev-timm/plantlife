@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styles from "../../styles/Post.module.css";
 import appStyles from "../../App.module.css";
+import btnStyles from "../../styles/Button.module.css";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import Button from "react-bootstrap/Button";
 
 import ReportCreateForm from "./ReportCreateForm";
 
@@ -40,7 +42,8 @@ const Post = (props) => {
     const is_owner = currentUser?.username === owner;
     const history = useHistory();
 
-    const [modalShow, setModalShow] = useState(false);
+    const [reportModalShow, setReportModalShow] = useState(false);
+    const [deleteModalShow, setDeleteModalShow] = useState(false);
     const [isPostReported, setIsPostReported] = useState(false);
 
     const handleEdit = () => {
@@ -141,7 +144,7 @@ const Post = (props) => {
                 <OverlayTrigger
                     placement="top"
                     overlay={<Tooltip>You can't report your own post!</Tooltip>}>
-                    <ReportIcon fill='green'/>
+                    <ReportIcon fill='green' />
                 </OverlayTrigger>
             )
         } else if (currentUser && !is_owner) {
@@ -150,20 +153,20 @@ const Post = (props) => {
                     <OverlayTrigger
                         placement="top"
                         overlay={<Tooltip>You've already reported this post!</Tooltip>}>
-                        <ReportIcon fill='green'/>
+                        <ReportIcon fill='green' />
                     </OverlayTrigger>
                 )
             } else {
-                return (<ReportIcon fill='#152E21' onClick={() => setModalShow(true)}/>)
+                return (<ReportIcon fill='#152E21' onClick={() => setReportModalShow(true)} />)
             }
         } else {
             return (
                 <OverlayTrigger
                     placement="top"
                     overlay={<Tooltip>Log in to report posts!</Tooltip>}>
-                    <ReportIcon fill='#152E21'/>
+                    <ReportIcon fill='#152E21' />
                 </OverlayTrigger>
-            )     
+            )
         }
     }
 
@@ -183,14 +186,41 @@ const Post = (props) => {
                 <Modal.Body className="mt-2">
                     <h5>Report "{title}"</h5>
                     <p>
-                    Are you sure you want to report this post? This action can't be undone!
+                        Are you sure you want to report this post? This action can't be undone!
                     </p>
                     <ReportCreateForm
                         owner={owner}
                         post={id}
-                        setModalShow={setModalShow}
+                        setReportModalShow={setReportModalShow}
                         setIsPostReported={setIsPostReported}
                     />
+                </Modal.Body>
+            </Modal>
+        );
+    }
+
+    function DeleteModal(props) {
+        return (
+            <Modal
+                {...props}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title id="contained-modal-title-vcenter">
+                        Delete Post
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="mt-2">
+                    <h5>Delete "{title}"</h5>
+                    <p>
+                        Are you sure you want to delete this post? This action can't be undone!
+                    </p>
+                    <Button className={`${btnStyles.Button} ${btnStyles.Primary} float-right ml-2`} onClick={handleDelete} >
+                        Delete
+                    </Button>
+                    <Button className={`${btnStyles.Button} ${btnStyles.Secondary} float-right ml-2`} onClick={() => setDeleteModalShow(false)}>Cancel</Button>
                 </Modal.Body>
             </Modal>
         );
@@ -212,13 +242,17 @@ const Post = (props) => {
                         {is_owner && postPage && (
                             <MoreDropdown
                                 handleEdit={handleEdit}
-                                handleDelete={handleDelete}
+                                handleDelete={() => setDeleteModalShow(true)}
                             />
                         )}
                     </div>
+                    <DeleteModal
+                        show={deleteModalShow}
+                        onHide={() => setDeleteModalShow(false)}
+                    />
                     <ReportModal
-                        show={modalShow}
-                        onHide={() => setModalShow(false)}
+                        show={reportModalShow}
+                        onHide={() => setReportModalShow(false)}
                     />
                 </Media>
             </Card.Body>

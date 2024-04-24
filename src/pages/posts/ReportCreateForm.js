@@ -11,7 +11,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 
 function ReportCreateForm(props) {
-    const { owner, post, setModalShow, setIsPostReported } = props;
+    const { owner, post, setReportModalShow, setIsPostReported } = props;
     const [reportReason, setReportReason] = useState("");
 
     useRedirect('loggedOut');
@@ -30,7 +30,7 @@ function ReportCreateForm(props) {
                 "report_reason": reportReason,
             });
             setIsPostReported(true)
-            setModalShow(false)
+            setReportModalShow(false)
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {
@@ -58,7 +58,7 @@ function ReportCreateForm(props) {
                 <Button className={`${btnStyles.Button} ${btnStyles.Primary} float-right ml-2`} type="submit">
                     Report
                 </Button>
-                <Button className={`${btnStyles.Button} ${btnStyles.Secondary} float-right ml-2`} onClick={() => setModalShow(false)}>Cancel</Button>
+                <Button className={`${btnStyles.Button} ${btnStyles.Secondary} float-right ml-2`} onClick={() => setReportModalShow(false)}>Cancel</Button>
             </div>
         </div>
     );
