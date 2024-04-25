@@ -9,7 +9,7 @@ import Post from "./Post";
 import Image from 'react-bootstrap/Image'
 
 import appStyles from "../../App.module.css";
-import styles from "../../styles/PostsPage.module.css";
+import styles from "../../styles/Form.module.css";
 
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";

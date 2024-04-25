@@ -14,7 +14,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import NoResults from "../../assets/no-results.svg";
 
 import Image from 'react-bootstrap/Image'
-import styles from "../../styles/AllProfiles.module.css";
+import styles from "../../styles/Form.module.css";
 import SearchIcon from "../../assets/icon-search.svg"
 import { Form } from "react-bootstrap";
 

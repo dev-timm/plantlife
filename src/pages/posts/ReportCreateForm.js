@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import { Alert } from "react-bootstrap";
 
 import btnStyles from "../../styles/Button.module.css";
-import formStyles from "../../styles/PostsPage.module.css"
+import formStyles from "../../styles/Form.module.css"
 
 import { axiosRes } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
@@ -41,7 +41,7 @@ function ReportCreateForm(props) {
 
     const dropdownField = (
         <div>
-            <div className={formStyles.OrderDropdown}>
+            <div className={formStyles.Dropdown}>
                 <Form.Control
                     as="select"
                     className="mr-sm-2 mb-3"
