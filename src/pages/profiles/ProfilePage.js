@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import Tabs from 'react-bootstrap/Tabs';
+import Tab from 'react-bootstrap/Tab';
 
 import Asset from "../../components/Asset";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
@@ -19,12 +21,14 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { Button, Image } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "../posts/Post";
+import Advertisement from "../advertisements/Advertisement";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.svg";
 
 function ProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
     const [profilePosts, setProfilePosts] = useState({ results: [] });
+    const [profileAdvertisements, setProfileAdvertisements] = useState({ results: [] });
 
     const currentUser = useCurrentUser();
     const { id } = useParams();
@@ -36,20 +40,23 @@ function ProfilePage() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [{ data: pageProfile }, { data: profilePosts }] =
+                const [{ data: pageProfile }, { data: profilePosts }, { data: profileAdvertisements }] =
                     await Promise.all([
                         axiosReq.get(`/profiles/${id}/`),
                         axiosReq.get(`/posts/?owner__profile=${id}`),
+                        axiosReq.get(`/advertisements/?owner__profile=${id}`),
                     ]);
                 await Promise.all([
                     axiosReq.get(`/profiles/${id}/`),
                     axiosReq.get(`/posts/?owner__profile=${id}`),
+                    axiosReq.get(`/advertisements/?owner__profile=${id}`),
                 ]);
                 setProfileData((prevState) => ({
                     ...prevState,
                     pageProfile: { results: [pageProfile] },
                 }));
                 setProfilePosts(profilePosts);
+                setProfileAdvertisements(profileAdvertisements);
                 setHasLoaded(true);
             } catch (err) {
                 console.log(err);
@@ -104,7 +111,6 @@ function ProfilePage() {
 
     const mainProfilePosts = (
         <>
-            <h5 className="ProfilePosts mb-4">{profile?.owner}'s posts</h5>
             {profilePosts.results.length ? (
                 <InfiniteScroll
                     children={profilePosts.results.map((post) => (
@@ -123,6 +129,28 @@ function ProfilePage() {
             )}
         </>
     );
+
+    const mainProfileAdvertisements = (
+        <>
+            {profileAdvertisements.results.length ? (
+                <InfiniteScroll
+                    children={profileAdvertisements.results.map((advertisement) => (
+                        <Advertisement key={advertisement.id} {...advertisement} setAdvertisements={setProfileAdvertisements} />
+                    ))}
+                    dataLength={profileAdvertisements.results.length}
+                    loader={<Asset spinner />}
+                    hasMore={!!profileAdvertisements.next}
+                    next={() => fetchMoreData(profileAdvertisements, setProfileAdvertisements)}
+                />
+            ) : (
+                <Asset
+                    src={NoResults}
+                    message={`No results found, ${profile?.owner} hasn't posted yet.`}
+                />
+            )}
+        </>
+    );
+
     return (
         <Row className="mt-4">
             <Col className="py-2 p-0 p-lg-2" lg={8}>
@@ -139,7 +167,14 @@ function ProfilePage() {
                 <Container className={`${appStyles.Card} mt-4`}>
                     {hasLoaded ? (
                         <>
-                            {mainProfilePosts}
+                            <Tabs className="mb-4" defaultActiveKey="posts" id="uncontrolled-tab-example">
+                                <Tab eventKey="posts" title="Posts">
+                                    {mainProfilePosts}
+                                </Tab>
+                                <Tab eventKey="advertisements" title="Advertisements">
+                                    {mainProfileAdvertisements}
+                                </Tab>
+                            </Tabs>
                         </>
                     ) : (
                         <Asset spinner />
