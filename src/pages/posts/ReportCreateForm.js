@@ -42,12 +42,9 @@ function ReportCreateForm(props) {
     const dropdownField = (
         <div>
             <div className={formStyles.OrderDropdown}>
-                {errors?.report_reason?.map(idx => (
-                    <Alert variant="warning" key={idx}>Please select a reason for reporting this post.</Alert>
-                ))}
                 <Form.Control
                     as="select"
-                    className="mr-sm-2 mb-5"
+                    className="mr-sm-2 mb-3"
                     defaultValue="default"
                     onChange={handleFormValueChange}>
                     <option value="default" disabled>What is wrong with this post?</option>
@@ -55,10 +52,15 @@ function ReportCreateForm(props) {
                     <option value="foul_language">Foul Language</option>
                     <option value="other">Other</option>
                 </Form.Control>
-                <Button className={`${btnStyles.Button} ${btnStyles.Primary} float-right ml-2`} type="submit">
+
+                {errors?.report_reason?.map(idx => (
+                    <Alert variant="warning" key={idx}>Please select a reason for reporting this post.</Alert>
+                ))}
+
+                <Button className={`${btnStyles.Button} ${btnStyles.Primary} float-right ml-2 mt-3`} type="submit">
                     Report
                 </Button>
-                <Button className={`${btnStyles.Button} ${btnStyles.Secondary} float-right ml-2`} onClick={() => setReportModalShow(false)}>Cancel</Button>
+                <Button className={`${btnStyles.Button} ${btnStyles.Secondary} float-right ml-2 mt-3`} onClick={() => setReportModalShow(false)}>Cancel</Button>
             </div>
         </div>
     );
