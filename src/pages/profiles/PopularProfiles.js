@@ -16,7 +16,7 @@ const PopularProfiles = ({ mobile }) => {
                     <h6>People you may want to follow:</h6>
                     {mobile ? (
                         <div className="d-flex justify-content-around">
-                            {popularProfiles.results.slice(0, 4).map(profile => (
+                            {popularProfiles.results.slice(0, 3).map(profile => (
                                 <PopularProfile key={profile.id} profile={profile} mobile />
                             ))}
                         </div>

@@ -56,66 +56,69 @@ function PostsPage({ message, filter = "" }) {
     }, [filter, query, ordering, pathname, currentUser]);
 
     return (
-            <Row className="h-100">
-                <Col className="py-2 p-0 p-lg-2" lg={8}>
-                    <Row className="mt-4"><PopularProfiles mobile /></Row>
-                    <Row>
-                        <Col>
-                            <Image className={styles.SearchIcon} src={SearchIcon} />
-                            <Form
-                                className={styles.SearchBar}
-                                onSubmit={(event) => event.preventDefault()}
-                            >
-                                <Form.Control
-                                    value={query}
-                                    onChange={(event) => setQuery(event.target.value)}
-                                    type="text"
-                                    className="mr-sm-2"
-                                    placeholder="Search for posts and users"
-                                />
-                            </Form>
-                        </Col>
-                        <Col>
-                            <Form className={styles.OrderDropdown}>
-                                <Form.Control
-                                    as="select"
-                                    onChange={(event) => setOrdering(event.target.value)}
-                                    className="mr-sm-2">
-                                    <option value="">By date</option>
-                                    <option value="-likes_count">By likes</option>
-                                    <option value="-comments_count">By comments</option>
-                                </Form.Control>
-                            </Form>
-                        </Col>
-                    </Row>
-                    {hasLoaded ? (
-                        <>
-                            {posts.results.length ? (
-                                <InfiniteScroll
-                                    children={posts.results.map((post) => (
-                                        <Post key={post.id} {...post} setPosts={setPosts} />
-                                    ))}
-                                    dataLength={posts.results.length}
-                                    loader={<Asset spinner />}
-                                    hasMore={!!posts.next}
-                                    next={() => fetchMoreData(posts, setPosts)}
-                                />
-                            ) : (
-                                <Container className={appStyles.Card}>
-                                    <Asset src={NoResults} message={message} />
-                                </Container>
-                            )}
-                        </>
-                    ) : (
-                        <Container className={appStyles.Card}>
-                            <Asset spinner />
-                        </Container>
-                    )}
-                </Col>
-                <Col lg={4} className="d-none d-lg-block mt-4 p-0 p-lg-2">
-                    <PopularProfiles />
-                </Col>
-            </Row>
+        <Row className="h-100">
+            <Col className="py-2" lg={8}>
+                <Row className="mt-4">
+                    <Col>
+                        <PopularProfiles mobile />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Image className={styles.SearchIcon} src={SearchIcon} />
+                        <Form
+                            className={styles.SearchBar}
+                            onSubmit={(event) => event.preventDefault()}
+                        >
+                            <Form.Control
+                                value={query}
+                                onChange={(event) => setQuery(event.target.value)}
+                                type="text"
+                                className="mr-sm-2"
+                                placeholder="Search for posts and users"
+                            />
+                        </Form>
+                    </Col>
+                    <Col>
+                        <Form className={styles.OrderDropdown}>
+                            <Form.Control
+                                as="select"
+                                onChange={(event) => setOrdering(event.target.value)}>
+                                <option value="">By date</option>
+                                <option value="-likes_count">By likes</option>
+                                <option value="-comments_count">By comments</option>
+                            </Form.Control>
+                        </Form>
+                    </Col>
+                </Row>
+                {hasLoaded ? (
+                    <>
+                        {posts.results.length ? (
+                            <InfiniteScroll
+                                children={posts.results.map((post) => (
+                                    <Post key={post.id} {...post} setPosts={setPosts} />
+                                ))}
+                                dataLength={posts.results.length}
+                                loader={<Asset spinner />}
+                                hasMore={!!posts.next}
+                                next={() => fetchMoreData(posts, setPosts)}
+                            />
+                        ) : (
+                            <Container className={appStyles.Card}>
+                                <Asset src={NoResults} message={message} />
+                            </Container>
+                        )}
+                    </>
+                ) : (
+                    <Container className={appStyles.Card}>
+                        <Asset spinner />
+                    </Container>
+                )}
+            </Col>
+            <Col lg={4} className="d-none d-lg-block mt-4 p-0 p-lg-2">
+                <PopularProfiles />
+            </Col>
+        </Row >
     );
 }
 
