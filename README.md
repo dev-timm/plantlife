@@ -18,3 +18,21 @@ As a user I want to...
 
 ### MVP
 PlantLife’s MVP is meant to be a simple version of a social media app that brings together plant enthusiasts from around the world. Core features consist of profile customization, reading, writing, editing and deleting posts and advertisements as well as an overview of all users with the option to follow each other.
+
+
+## Design Decisions
+
+### Wireframes
+Creating the wireframes before the start of development allowed more time for the coding phase as a lot of time was saved by having less need for design changes.
+
+![An image of a wireframe](src/assets/README/wireframe-image.png)
+
+[Link to all wireframes](https://github.com/dev-timm/plantlife/tree/main/src/assets/README/wireframes)
+
+### Usability
+
+#### Layout
+The layout is usually organized within 1-2 columns so that the actions and important content are easy to see.
+
+#### Colors
+The primary color is a vibrant green that represents nature and plants. It has a good contrast to white, which is important for UI elements such as buttons. Overall the color should give a positive feeling to the user and make it easy to identify important elements.
