@@ -48,7 +48,7 @@ function App() {
           />
           <Route
             exact
-            path="/bookmarked"
+            path="/bookmarks"
             render={() => (
               <PostsPage message="No results found. Adjust the search keyword or bookmark a post"
                 filter={`bookmarks__owner__profile=${profile_id}&ordering=-bookmarks__created_at&`}
