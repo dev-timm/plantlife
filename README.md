@@ -201,5 +201,38 @@ A 404 page is displayed whenever the user has entered a wrong url.
 | Account | On profile page click on Advertisements below profile information | Displays all advertisements published by the user | Pass
 | Account | On profile page click on Posts below profile information | Displays all posts published by the user | Pass
 
+## Technologies Used
+
+PlantLife's project mainly relies on:
+
+- [HTML](https://en.wikipedia.org/wiki/HTML)
+- [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+- [React](https://react.dev/)
+- [Heroku](https://www.heroku.com/)
+- [Git](https://git-scm.com/)
+
+As part of React, different Front-End libraries were used throughout the project:
+
+- [React Bootstrap](https://react-bootstrap-v4.netlify.app/) - Used to structure and style the application 
+- [React Router Dom](https://reactrouter.com/en/6.23.0/start/overview) - After clicking a link, URL updates without browser refresh
+- [Axios](https://www.npmjs.com/package/axios) - Sends requests from React project to the API
+- [Infinite Scroll](https://www.npmjs.com/package/react-infinite-scroll-component) - Instead of pagination loads new content by scrolling down
+- [jwt-decode](https://www.npmjs.com/package/jwt-decode) - Decodes JSON Web Tokens (JWT)
+
+
+Additionally, the following platforms and tools were used while working on the project:
+
+- [Gitpod](https://gitpod.io/)
+- [GitHub](https://github.com/)
+- [Google Fonts](https://fonts.google.com/)
+- [Figma](https://www.figma.com/)
+- [Autoprefixer CSS](https://autoprefixer.github.io/)
+
+The media and content pieces were created with the help of:
+
+- [Unsplash](https://unsplash.com/)
+- [ChatGPT](https://chat.openai.com/)
+
 
 
