@@ -259,3 +259,14 @@ The media and content pieces were created with the help of:
 7. If everything's done right, you should now see a cloned repository in your IDE.
 
 
+## Credits
+
+### Images
+All images for the website are taken from [unsplash.com](https://unsplash.com/).
+
+## Thank You
+
+- to my mentor Gareth for supporting me with his feedback throughout the entire project
+- to my wife Valentina for making sure I always get the time and anything else I need for working on this course and projects
+
+
