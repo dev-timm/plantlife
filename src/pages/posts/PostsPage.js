@@ -16,13 +16,13 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-import NoResults from "../../assets/no-results.svg";
 import SearchIcon from "../../assets/icon-search.svg"
 import Asset from "../../components/Asset";
 import { Form } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+import { NoFindings } from "../../components/NoResults";
 
 function PostsPage({ message, filter = "" }) {
     const [posts, setPosts] = useState({ results: [] });
@@ -105,7 +105,7 @@ function PostsPage({ message, filter = "" }) {
                             />
                         ) : (
                             <Container className={appStyles.Card}>
-                                <Asset src={NoResults} message={message} />
+                                <NoFindings />
                             </Container>
                         )}
                     </>

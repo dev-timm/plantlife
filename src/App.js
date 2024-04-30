@@ -34,32 +34,28 @@ function App() {
             exact
             path="/"
             render={() => (
-              <PostsPage message="No results found. Adjust the search keyword." />
+              <PostsPage />
             )}
           />
           <Route
             exact
             path="/Feed"
             render={() => (
-              <PostsPage message="No results found. Adjust the search or follow a user."
-                filter={`owner__followed__owner__profile=${profile_id}&`}
-              />
+              <PostsPage filter={`owner__followed__owner__profile=${profile_id}&`} />
             )}
           />
           <Route
             exact
             path="/bookmarks"
             render={() => (
-              <PostsPage message="No results found. Adjust the search keyword or bookmark a post"
-                filter={`bookmarks__owner__profile=${profile_id}&ordering=-bookmarks__created_at&`}
-              />
+              <PostsPage filter={`bookmarks__owner__profile=${profile_id}&ordering=-bookmarks__created_at&`} />
             )}
           />
           <Route
             exact
             path="/advertisements"
             render={() => (
-              <AdvertisementsPage message="No results found. Adjust the search keyword." />
+              <AdvertisementsPage />
             )}
           />
           <Route exact path='/signin' render={() => <SignInForm />} />

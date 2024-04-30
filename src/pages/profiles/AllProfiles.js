@@ -11,7 +11,6 @@ import { Profile } from "./Profile";
 import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosReq } from "../../api/axiosDefaults";
-import NoResults from "../../assets/no-results.svg";
 
 import Image from 'react-bootstrap/Image'
 import styles from "../../styles/Form.module.css";
@@ -19,6 +18,7 @@ import SearchIcon from "../../assets/icon-search.svg"
 import { Form } from "react-bootstrap";
 
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { NoFindings } from "../../components/NoResults";
 
 
 const AllProfiles = ({ message, filter = "" }) => {
@@ -45,7 +45,7 @@ const AllProfiles = ({ message, filter = "" }) => {
         const timer = setTimeout(() => {
             fetchProfiles();
         }, 1000);
-        
+
         return () => {
             clearTimeout(timer);
         };
@@ -65,13 +65,12 @@ const AllProfiles = ({ message, filter = "" }) => {
                         onChange={(event) => setQuery(event.target.value)}
                         type="text"
                         className="mr-sm-2"
-                        placeholder="Search for users"                        
+                        placeholder="Search for users"
                     />
                 </Form>
                 {hasLoaded ? (
                     <>
                         <Container className={`${appStyles.Card}`}>
-                            <h1>Plant Lovers</h1>
                             {profiles.results.length ? (
                                 <InfiniteScroll
                                     children={profiles.results.map(profile => (
@@ -83,9 +82,7 @@ const AllProfiles = ({ message, filter = "" }) => {
                                     next={() => fetchMoreData(profiles, setProfiles)}
                                 />
                             ) : (
-                                <Container className={appStyles.Card}>
-                                    <Asset src={NoResults} message={message} />
-                                </Container>
+                                <NoFindings />
                             )}
                         </Container>
                     </>

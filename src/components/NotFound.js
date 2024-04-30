@@ -7,6 +7,7 @@ import btnStyles from "../styles/Button.module.css";
 
 import { Image, Col, Row, Container } from "react-bootstrap";
 
+
 export const NotFound = () => {
     return (
         <Row className={formStyles.Row}>
@@ -16,7 +17,6 @@ export const NotFound = () => {
                     <h5 className={`${styles.Title} mb-4`}>Hey there, looks like the page doesn't exist!</h5>
                     <Link className={`${btnStyles.Button} ${btnStyles.Primary}`} to="/"> Let's go home</Link>
                 </Container>
-
             </Col>
         </Row>
     )
