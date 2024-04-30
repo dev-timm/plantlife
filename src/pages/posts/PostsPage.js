@@ -22,7 +22,7 @@ import { Form } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
-import { NoFindings } from "../../components/NoResults";
+import { NoFindings } from "../../components/NoFindings";
 
 function PostsPage({ filter = "" }) {
     const [posts, setPosts] = useState({ results: [] });

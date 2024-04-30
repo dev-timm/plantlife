@@ -24,6 +24,7 @@ import Post from "../posts/Post";
 import Advertisement from "../advertisements/Advertisement";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.svg";
+import { NoFindings } from "../../components/NoFindings";
 
 function ProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
@@ -122,10 +123,7 @@ function ProfilePage() {
                     next={() => fetchMoreData(profilePosts, setProfilePosts)}
                 />
             ) : (
-                <Asset
-                    src={NoResults}
-                    message={`No results found, ${profile?.owner} hasn't posted yet.`}
-                />
+                <NoFindings />
             )}
         </>
     );
@@ -143,10 +141,7 @@ function ProfilePage() {
                     next={() => fetchMoreData(profileAdvertisements, setProfileAdvertisements)}
                 />
             ) : (
-                <Asset
-                    src={NoResults}
-                    message={`No results found, ${profile?.owner} hasn't posted yet.`}
-                />
+                <NoFindings />
             )}
         </>
     );

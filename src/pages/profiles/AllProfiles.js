@@ -18,7 +18,7 @@ import SearchIcon from "../../assets/icon-search.svg"
 import { Form } from "react-bootstrap";
 
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
-import { NoFindings } from "../../components/NoResults";
+import { NoFindings } from "../../components/NoFindings";
 
 
 const AllProfiles = ({ filter = "" }) => {
