@@ -21,7 +21,7 @@ import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { NoFindings } from "../../components/NoResults";
 
 
-const AllProfiles = ({ message, filter = "" }) => {
+const AllProfiles = ({ filter = "" }) => {
     const [profiles, setProfiles] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
@@ -53,21 +53,29 @@ const AllProfiles = ({ message, filter = "" }) => {
 
     return (
         <Row className="h-100 mt-4">
-            <Col className="py-2 p-0 p-lg-2" lg={8}>
-                <PopularProfiles mobile />
-                <Image className={styles.SearchIcon} src={SearchIcon} />
-                <Form
-                    className={styles.SearchBar}
-                    onSubmit={(event) => event.preventDefault()}
-                >
-                    <Form.Control
-                        value={query}
-                        onChange={(event) => setQuery(event.target.value)}
-                        type="text"
-                        className="mr-sm-2"
-                        placeholder="Search for users"
-                    />
-                </Form>
+            <Col className="py-2" lg={8}>
+                <Row className="">
+                    <Col>
+                        <PopularProfiles mobile />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Image className={styles.SearchIcon} src={SearchIcon} />
+                        <Form
+                            className={styles.SearchBar}
+                            onSubmit={(event) => event.preventDefault()}
+                        >
+                            <Form.Control
+                                value={query}
+                                onChange={(event) => setQuery(event.target.value)}
+                                type="text"
+                                className="mr-sm-2"
+                                placeholder="Search for users"
+                            />
+                        </Form>
+                    </Col>
+                </Row>
                 {hasLoaded ? (
                     <>
                         <Container className={`${appStyles.Card}`}>

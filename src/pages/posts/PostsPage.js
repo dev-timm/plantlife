@@ -24,7 +24,7 @@ import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import { NoFindings } from "../../components/NoResults";
 
-function PostsPage({ message, filter = "" }) {
+function PostsPage({ filter = "" }) {
     const [posts, setPosts] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();

@@ -23,7 +23,7 @@ import PopularProfiles from "../profiles/PopularProfiles";
 import Advertisement from "./Advertisement";
 import { NoFindings } from "../../components/NoResults";
 
-function AdvertisementsPage({ message, filter = "" }) {
+function AdvertisementsPage({ filter = "" }) {
     const [advertisements, setAdvertisements] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
@@ -56,8 +56,12 @@ function AdvertisementsPage({ message, filter = "" }) {
 
     return (
         <Row className="h-100">
-            <Col className="py-2 p-0 p-lg-2" lg={8}>
-                <Row className="mt-4"><PopularProfiles mobile /></Row>
+            <Col className="py-2" lg={8}>
+                <Row className="mt-4">
+                    <Col>
+                        <PopularProfiles mobile />
+                    </Col>
+                </Row>
                 <Row>
                     <Col>
                         <Image className={styles.SearchIcon} src={SearchIcon} />
