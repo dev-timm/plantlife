@@ -23,7 +23,6 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "../posts/Post";
 import Advertisement from "../advertisements/Advertisement";
 import { fetchMoreData } from "../../utils/utils";
-import NoResults from "../../assets/no-results.svg";
 import { NoFindings } from "../../components/NoFindings";
 
 function ProfilePage() {

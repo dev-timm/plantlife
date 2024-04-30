@@ -1,21 +1,21 @@
 .Row {
-    height: 80vh
-  }
+  height: 80vh
+}
 
 .Container {
-    min-height: 343px;
-  }
+  min-height: 343px;
+}
 
 .Label {
-    font-size: 14px;
-    font-weight: 600;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .Input {
-    background: #ffffff;
-    border: 1px solid #D2D2D2;
-    height: 48px;
-    border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #D2D2D2;
+  height: 48px;
+  border-radius: 12px;
 }
 
 .Dropdown select {

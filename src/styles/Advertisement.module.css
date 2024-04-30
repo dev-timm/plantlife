@@ -1,30 +1,27 @@
 .Advertisement {
-    background-color: #ffffff;
-    padding: 20px 40px;
-    border-radius: 16px;
-    border: 1px solid #dadadf;
-    margin-bottom: 24px;
-  }
-  
-  svg:hover {
-    path {
-      cursor: pointer;
-      fill: #279A5C;
-    }
-  }
+  background-color: #ffffff;
+  padding: 20px 40px;
+  border-radius: 16px;
+  border: 1px solid #dadadf;
+  margin-bottom: 24px;
+}
 
+svg:hover {
+  cursor: pointer;
+  fill: #279A5C;
+}
 
 .Available {
-    font-weight: 600;
-    color: #279A5C;
+  font-weight: 600;
+  color: #279A5C;
 }
 
 .Reserved {
-    font-weight: 600;
-    color: #b14b03;
+  font-weight: 600;
+  color: #b14b03;
 }
 
 .Unavailable {
-    font-weight: 600;
-    color: #820000;
+  font-weight: 600;
+  color: #820000;
 }

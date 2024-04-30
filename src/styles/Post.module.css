@@ -7,8 +7,6 @@
 }
 
 svg:hover {
-  path {
-    cursor: pointer;
-    fill: #279A5C;
-  }
+  cursor: pointer;
+  fill: #279A5C;
 }

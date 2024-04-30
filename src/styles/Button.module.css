@@ -1,45 +1,44 @@
 .Button {
-    font-size: 1rem;
-    border-radius: 100px;
-    font-weight: 600;
-    padding: 8px 16px;
-  }
+  font-size: 1rem;
+  border-radius: 100px;
+  font-weight: 600;
+  padding: 8px 16px;
+}
 
-  .Primary {
-    color: #fff;
-    border: 1px solid #258752;
-    background-color: #258752;
-  }
+.Primary {
+  color: #fff;
+  border: 1px solid #258752;
+  background-color: #258752;
+}
 
-  .Secondary {
-    color: #258752;
-    border: 1px solid #258752;
-    background-color: #fff;
-  }
+.Secondary {
+  color: #258752;
+  border: 1px solid #258752;
+  background-color: #fff;
+}
 
-  .ButtonFollow {
-    border: 1px solid #fff;
-    color: #258752;
-    font-size: 14px;
-    background-color: #fff;
-  }
-  
-  .ButtonUnFollow {
-    border: 1px solid #fff;
-    background-color: #fff;
-    font-size: 14px;
-    color: #777777;
-  }
+.ButtonFollow {
+  border: 1px solid #fff;
+  color: #258752;
+  font-size: 14px;
+  background-color: #fff;
+}
 
-  .Button:hover {
-    background-color: #279A5C !important;
-    color: #fff;
-    border: 1px solid #279A5C !important;
-    cursor: pointer;
-  }
-  
-  .Wide {
-    height: 48px;
-    width: 100%;
-  }
-  
+.ButtonUnFollow {
+  border: 1px solid #fff;
+  background-color: #fff;
+  font-size: 14px;
+  color: #777777;
+}
+
+.Button:hover {
+  background-color: #279A5C !important;
+  color: #fff;
+  border: 1px solid #279A5C !important;
+  cursor: pointer;
+}
+
+.Wide {
+  height: 48px;
+  width: 100%;
+}
