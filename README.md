@@ -117,6 +117,7 @@ A 404 page is displayed whenever the user has entered a wrong url.
 - Display posts, ads and comments as a modal for a more seamless experience
 - Add tags to posts so that it’s even easier to filter posts by topics relevant to users
 
+
 ### Feature Testing
 | Feature | Action | Expected Behaviour | Pass/Fail
 | --- | --- | --- | --- |
