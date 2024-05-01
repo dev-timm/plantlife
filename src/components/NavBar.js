@@ -38,7 +38,7 @@ const NavBar = () => {
             setCurrentUser(null);
             removeTokenTimestamp();
         } catch (err) {
-            console.log(err);
+            // console.log(err);
         }
     };
 
@@ -53,9 +53,6 @@ const NavBar = () => {
             window.removeEventListener("resize", handleResize)
         }
     }, [setWidth])
-
-    console.log(width)
-
 
     const loggedIn = <>
         <Nav className="mr-auto">

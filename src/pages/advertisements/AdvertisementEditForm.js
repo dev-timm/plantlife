@@ -37,11 +37,9 @@ function AdvertisementEditForm() {
                 const { data } = await axiosReq.get(`/advertisements/${id}/`);
                 const { title, plant_type, price, availability, contact, content, ad_image, is_owner } = data;
 
-                console.log(availability)
-
                 is_owner ? setAdvertisementData({ title, plant_type, price, availability, contact, content, ad_image }) : history.push("/");
             } catch (err) {
-                console.log(err)
+                // console.log(err)
             }
         };
 
@@ -53,7 +51,6 @@ function AdvertisementEditForm() {
             ...advertisementData,
             [event.target.name]: event.target.value,
         });
-        console.log(advertisementData)
     };
 
     const handleChangeImage = (event) => {
@@ -85,7 +82,7 @@ function AdvertisementEditForm() {
             await axiosReq.put(`/advertisements/${id}/`, formData);
             history.push(`/advertisements/${id}`);
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
             }

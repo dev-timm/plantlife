@@ -68,7 +68,7 @@ function AdvertisementCreateForm() {
             const { data } = await axiosReq.post("/advertisements/", formData);
             history.push(`/advertisements/${data.id}`);
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
             }

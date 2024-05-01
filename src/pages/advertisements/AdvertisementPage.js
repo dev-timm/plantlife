@@ -19,7 +19,7 @@ function AdvertisementPage() {
                 ]);
                 setAdvertisement({ results: [advertisement] });
             } catch (err) {
-                console.log(err);
+                // console.log(err);
             }
         };
 
