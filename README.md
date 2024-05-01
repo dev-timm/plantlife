@@ -118,6 +118,19 @@ A 404 page is displayed whenever the user has entered a wrong url.
 - Add tags to posts so that it’s even easier to filter posts by topics relevant to users
 
 
+## Testing
+
+### Validation
+All code was tested with an [HTML Validator](https://validator.w3.org/), [CSS Validator](https://jigsaw.w3.org/css-validator/), [JS Validator](https://jshint.com/) and [ESLint](https://eslint.org/) and no significant issues were found.
+
+### Tested Devices & Browsers
+- iPhone 11
+    - Safari (known issue that sign in is not functional as the React app and DRF app live on different servers)
+- Macbook Pro
+    - Chrome
+    - Safari (known issue that sign in is not functional as the React app and DRF app live on different servers)
+    - Firefox
+
 ### Feature Testing
 | Feature | Action | Expected Behaviour | Pass/Fail
 | --- | --- | --- | --- |
