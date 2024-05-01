@@ -54,7 +54,7 @@ const AllProfiles = ({ filter = "" }) => {
     return (
         <Row className="h-100 mt-4">
             <Col className="py-2" lg={8}>
-                <Row className="">
+                <Row>
                     <Col>
                         <PopularProfiles mobile />
                     </Col>

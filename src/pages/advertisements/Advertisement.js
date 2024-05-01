@@ -83,12 +83,14 @@ const Advertisement = (props) => {
         <Card className={styles.Advertisement}>
             <Card.Body className="px-0">
                 <Media className="align-items-center justify-content-between">
-                    <Link to={`/profiles/${profile_id}`}>
+                    <Link to={`/profiles/${profile_id}`} className="d-flex align-items-center">
                         <Avatar src={profile_image} height={48} />
-                        {owner}
+                        <div className="ml-2">
+                            {owner} <br />
+                            <span className={styles.Updated}> {updated_on}</span>
+                        </div>
                     </Link>
                     <div className="d-flex align-items-center">
-                        <span className="mr-3">{updated_on}</span>
                         {is_owner && (
                             <MoreDropdown
                                 handleEdit={handleEdit}
@@ -105,11 +107,11 @@ const Advertisement = (props) => {
             <Card.Body className="px-0">
                 {title && <Card.Title className="mb-5">{title}</Card.Title>}
                 <Row className="mb-3">
-                    <Col>
+                    <Col className="mb-3">
                         <h6>Plant Type</h6>
                         {plant_type && <Card.Text>{plant_type}</Card.Text>}
                     </Col>
-                    <Col>
+                    <Col className="mb-3">
                         <h6>Price</h6>
                         {price && <Card.Text>{price}</Card.Text>}
                     </Col>

@@ -14,7 +14,7 @@ import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import { NotFound } from './components/NotFound';
-import AllProfiles from './pages/profiles/AllProfiles';
+import ProfilesPage from './pages/profiles/ProfilesPage';
 import { useCurrentUser } from './contexts/CurrentUserContext';
 import AdvertisementCreateForm from './pages/advertisements/AdvertisementCreateForm';
 import AdvertisementPage from './pages/advertisements/AdvertisementPage';
@@ -66,7 +66,7 @@ function App() {
           <Route exact path='/advertisements/create' render={() => <AdvertisementCreateForm />} />
           <Route exact path='/advertisements/:id' render={() => <AdvertisementPage />} />
           <Route exact path='/advertisements/:id/edit' render={() => <AdvertisementEditForm />} />
-          <Route exact path='/profiles' render={() => <AllProfiles />} />
+          <Route exact path='/profiles' render={() => <ProfilesPage />} />
           <Route exact path='/profiles/:id' render={() => <ProfilePage />} />
           <Route exact path="/profiles/:id/edit/username" render={() => <UsernameForm />} />
           <Route exact path="/profiles/:id/edit/password" render={() => <UserPasswordForm />} />

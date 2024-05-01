@@ -10,3 +10,8 @@ svg:hover {
   cursor: pointer;
   fill: #279A5C;
 }
+
+.Updated {
+  font-weight: 400;
+  font-size: 14px;
+}

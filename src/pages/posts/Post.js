@@ -164,7 +164,7 @@ const Post = (props) => {
                 <OverlayTrigger
                     placement="top"
                     overlay={<Tooltip>Log in to report posts!</Tooltip>}>
-                    <ReportIcon fill='#152E21'/>
+                    <ReportIcon fill='#152E21' />
                 </OverlayTrigger>
             );
         }
@@ -227,17 +227,18 @@ const Post = (props) => {
     }
 
 
-
     return (
         <Card className={styles.Post}>
             <Card.Body className="px-0">
                 <Media className="align-items-center justify-content-between">
-                    <Link to={`/profiles/${profile_id}`}>
+                    <Link to={`/profiles/${profile_id}`} className="d-flex align-items-center">
                         <Avatar src={profile_image} height={48} />
-                        {owner}
+                        <div className="ml-2">
+                            {owner} <br />
+                            <span className={styles.Updated}> {updated_on}</span>
+                        </div>
                     </Link>
                     <div className="d-flex align-items-center">
-                        <span className="mr-3">{updated_on}</span>
                         {showReportIcon()}
                         {is_owner && postPage && (
                             <MoreDropdown

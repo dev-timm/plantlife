@@ -68,13 +68,13 @@ function ProfilePage() {
     const mainProfile = (
         <>
             <Row noGutters className="align-items-center mb-4">
-                <Col md={2} xs={3}>
+                <Col md={2} sm={3} xs={4}>
                     <Image className={styles.ProfileImage} roundedCircle src={profile?.profile_image} alt="profile image" />
                 </Col>
-                <Col md={5} xs={4}>
+                <Col md={5} sm={5} xs={6}>
                     <p className={styles.ProfileOwner}>{profile?.owner}</p>
                 </Col>
-                <Col md={5} xs={5} className="text-right">
+                <Col md={5} sm={4} xs={2} className="text-right">
                     {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
                     {currentUser && !is_owner &&
                         (profile?.following_id ? (
@@ -147,7 +147,7 @@ function ProfilePage() {
 
     return (
         <Row className="mt-4">
-            <Col className="py-2 p-0 p-lg-2" lg={8}>
+            <Col className="py-2" lg={8}>
                 <PopularProfiles mobile />
                 <Container className={appStyles.Card}>
                     {hasLoaded ? (
