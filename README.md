@@ -121,86 +121,88 @@ A 404 page is displayed whenever the user has entered a wrong url.
 ### Feature Testing
 | Feature | Action | Expected Behaviour | Pass/Fail
 | --- | --- | --- | --- |
-| Sign Up | Click on the Sign Up button on the NavBar | Opens sign up page | Pass
+| Sign Up | Click on the Sign Up button on the NavBar | Opens Sign Up page | Pass
 | Sign Up | Don’t enter username and click Sign Up | Shows warning message that field can't be blank | Pass
 | Sign Up | Enter new username and password and click Sign Up | No warning because username doesn’t exists yet | Pass
-| Sign Up | Enter already existing username and clik Sign Up | Shows warning message that username already exists | Pass
+| Sign Up | Enter already existing username and click Sign Up | Shows warning message that username already exists | Pass
 | Sign Up | Enter and repeat acceptable password | Signing up works without error | Pass
 | Sign Up | Repeat wrong password | Shows warning message that passwords need to match | Pass
 | Sign Up | Don’t enter password | Shows warning message that field must be filled | Pass
 | Sign Up | Enter too short password | Shows warning message that password must at least be 8 characters | Pass
-| Sign Up | Fill out all fields correctly and submit | Creates new account and user is send to Sign In page automatically | Pass
-| Sign Up | Click Sign In link below button | Leads user to Sign In page | Pass
+| Sign Up | Fill out all fields correctly and submit | Creates new account and user is sent to the Sign In page automatically | Pass
+| Sign Up | Click Sign In link below Sign Up button | Leads user to Sign In page | Pass
 | Sign In | Click on the Sign In button on the NavBar | Opens Sign In page | Pass
 | Sign In | Enter no username or password and click Sign In button | Shows warning message that fields can't be blank | Pass
 | Sign In | Enter wrong username and/or password and click Sign in button | Shows warning message that either username or password are incorrect | Pass
 | Sign In | Enter correct username and password and click Sign In button | Successfully signs user in | Pass
 | Sign In | Click Sign Up link below button | Leads user to Sign Up page | Pass
-| Post List | Type a username or title in the search bar that fits at least one post on the post list | Only posts that match the search criteria(s) are visible | Pass
-| Post List | Choose to order posts by date, number of likes or number of comments | Post list changes order depending on the selected option | Pass
-| Post | Click on the like icon of a other users post while being logged in | Like icon turns green and like count increases by 1 | Pass
-| Post | Click on the same like icon of a other users post while being logged in | Like icon turns dark again and like count decreases by 1 | Pass
+| Homepage| Type a username or title in the search bar that fits at least one post on the post list | Only posts that match the search criteria are visible | Pass
+| Homepage | Choose to order posts by date, number of likes or number of comments | Post list changes order depending on the selected option | Pass
+| Post | Click on the like icon of another user’s post while being logged in | Like icon turns green and like count increases by 1 | Pass
+| Post | Click on the same like icon of another user’s post while being logged in | Like icon turns dark again and like count decreases by 1 | Pass
 | Post | Hover over the like icon of a post while being logged out | Tool tip appears that user has to be logged in to be able to like a post | Pass
 | Post | Hover over the like icon of your own post while being logged in | Tool tip appears that user can’t like their own post | Pass
-| Post | Click on the username on one of the posts | Leads to the usernames public profile | Pass
-| Post | Click on a bookmark icon on one of the posts | Icon turns green and post is added to the Bookmarks page | Pass
-| Post | Click again on the same bookmark icon | Icon turns dark again and post is removed to the Bookmarks page | Pass
+| Post | Click on the username on one of the posts | Leads to the post author’s public profile | Pass
 | Post | Click on a post image or comment icon | Leads to post detail page | Pass
+| Bookmark | Click on the bookmark icon on one of the posts while being logged in | Icon turns green and post is added to the Bookmarks page | Pass
+| Bookmark | Click again on the bookmark icon of the same post while being logged in | Icon turns dark again and post is removed from the Bookmarks page | Pass
+| Bookmark | Hover over the bookmark icon of a post while being logged out | Tool tip appears that user has to be logged in to be able to bookmark a post | Pass
 | Report Post | Click on report icon on the top right corner of a post from another user | Modal opens that includes a dropdown with different report options | Pass
 | Report Post | Click the cancel button on the report modal | Report modal disappears | Pass
-| Report Post | Click the Report button on the report modal without selecting an option | Shows warning modal that option need to be selected | Pass
-| Report Post | Select an report option and click the Report button | Report is submitted and report icon stays green | Pass
-| Report Post | Hover over an already reported post | Tool tip appears that user can’t report again the same post | Pass
-| Comment | Post a comment with entered content while being logged in | Shows comment below and increase count next to comment icon by 1 | Pass
-| Comment | Click meatball menu next to owned comment and select edit | Shows edit comment window with submit and cancel button | Pass
-| Comment | Click cancel button on edited comment | Edit window disappears | Pass
-| Comment | Click submit button on edited comment | Comment is updated and displayed | Pass
-| Comment | Click meatball menu next to owned comment and select delete | Shows warning modal with delete and cancel button | Pass
-| Comment | Click cancel on warning modal | Modal disappears | Pass
-| Comment | Click delete on warning modal | Modal disappears and so does the comment | Pass
-| Create/Edit Post | Click on button in NavBar and select “Plant a post” | Opens “Create Post” page | Pass
-| Create/Edit Post | Submit the post without filling in required fields | Show warning message on required field(s) | Pass
-| Create/Edit Post | Submit the post with wrong format in at least one text fields | Shows warning message that conventions must be followed | Pass
+| Report Post | Click the Report button on the report modal without selecting an option | Shows warning modal that a reason needs to be selected | Pass
+| Report Post | Select a report reason and click the Report button | Report is submitted and report icon stays green | Pass
+| Report Post | Hover over an already reported post | Tool tip appears that the user has already reported the post | Pass
+| Create/Edit Comment | Post a comment with entered content while being logged in | Shows comment below the post and increases comment count by 1 | Pass
+| Create/Edit Comment | Click meatball menu next to the own comment and select edit | Shows edit area with Update Comment and Cancel buttons | Pass
+| Create/Edit Comment | Click Cancel button on edited comment | Edit area disappears | Pass
+| Create/Edit Comment | Click Update Comment button on edited comment | Comment is updated and displayed | Pass
+| Delete Comment | Click meatball menu next to the own comment and select delete | Shows warning modal with Delete and Cancel buttons | Pass
+| Delete Comment | Click Cancel on warning modal | Modal disappears | Pass
+| Delete Comment | Click Delete on warning modal | Modal disappears as well as the comment and post’s comment count decreases by 1 | Pass
+| Create/Edit Post | Click on button in NavBar and select “Plant a post” | Opens Create Post page | Pass
+| Create/Edit Post | Submit the post without filling in required fields | Shows warning message on required field(s) | Pass
 | Create/Edit Post | Submit the post with required fields filled in | Submits post successfully | Pass
-| Create/Edit Post | Click meatball menu next to owned post and select edit | Opens edit page for this post | Pass
+| Create/Edit Post | Click meatball menu next to the own post and select Edit | Opens Edit page for this post | Pass
 | Create/Edit Post | Edit post and click Cancel button | Post shows without changes | Pass
 | Create/Edit Post | Edit post and click Update Post button | Post shows including changes | Pass
-| Delete Post | Click meatball menu next to owned post and select Delete | - | Pass
+| Delete Post | Click meatball menu next to the own post and select Delete | Shows warning modal with Delete and Cancel buttons | Pass
 | Delete Post | Click Cancel on warning modal | Modal disappears | Pass
 | Delete Post | Click Delete on warning modal | Modal disappears and so does the post | Pass
-| Create/Edit Ad | Click on button in NavBar and select Plant an advertisement | Opens create advertisement page | Pass
-| Create/Edit Ad | Submit the ad without filling in required fields | Show warning message on required field  | Pass
-| Create/Edit Ad | Submit the ad with wrong format in at least one text fields | Shows warning message that conventions must be followed | Pass
+| Create/Edit Ad | Click on button in NavBar and select “Plant an advertisement” | Opens Create Advertisement page | Pass
+| Create/Edit Ad | Submit the ad without filling in required fields | Shows warning message on required field(s)  | Pass
+| Create/Edit Ad | Submit the ad with text in the price field | Shows warning message that the input must be in numbers | Pass
 | Create/Edit Ad | Submit the ad with required fields filled in | Submits ad successfully | Pass
-| Create/Edit Ad | Click meatball menu next to owned ad and select Edit | Opens edit page for this ad | Pass
+| Create/Edit Ad | Click meatball menu next to the own ad and select Edit | Opens Edit page for this ad | Pass
 | Create/Edit Ad | Edit ad and click Cancel button | Ad shows without changes | Pass
 | Create/Edit Ad | Edit ad and click Update Advertisement button | Ad shows including changes | Pass
-| Delete Ad | Click meatball menu next to owned ad and select Delete | Shows warning modal with Delete and Cancel button | Pass
+| Delete Ad | Click meatball menu next to the own ad and select Delete | Shows warning modal with Delete and Cancel buttons | Pass
 | Delete Ad | Click Cancel on warning modal | Modal disappears | Pass
 | Delete Ad | Click Delete on warning modal | Modal disappears and so does the ad | Pass
-| Plant Lovers | Click on Plant Lovers in the NavBar | Land on Plant Lovers page | Pass
-| Plant Lovers | Click on View Profile of a user | Land on profile page of this user | Pass
-| Account | Click on profile image in the header | Dropdown opens with two options: View Profile and Sign Out | Pass
-| Account | Click on Sign out  | User is signed out | Pass
+|Profiles | Click on “Plant Lovers” in the NavBar | Land on Plant Lovers page | Pass
+| Profiles | Click on View Profile of a user | Land on profile page of this user | Pass
+| Account | Click on profile image in the NavBar | Dropdown opens with two options: View Profile and Sign Out | Pass
+| Account | Click on Sign out | User is signed out | Pass
 | Account | Click on View Profile | Land on profile page | Pass
-| Account | On own profile page click on meatball menu next to profile name | Shows dropdown with three options to edit: profile, username and password | Pass
-| Account | Click on Edit Profile | Opens edit profile page | Pass
-| Account | On the edit profile page change the image or bio and click Update Profile | Returns to the profile page with updated profile | Pass
-| Account | Click on Edit Username | Opens edit username page | Pass
-| Account | On the edit username page click Cancel | Returns to the profile page without any changes | Pass
-| Account | On the edit username page change the username to an not already existing name and click Update Username | Returns to the profile page with updated username | Pass
-| Account | On the edit username page change the username to an already existing name and click Update Username | Warning message shows that username already exists | Pass
-| Account | On the edit username page remove username and click Update Username | Warning message shows that input field can’t be blank | Pass
-| Account | On the edit password page click Cancel | Returns to the profile page without any changes | Pass
-| Account | On the edit password page click Update Password without entering passwords | Show warning message that input field(s) can’t be blank | Pass
-| Account | On the edit password page enter two different passwords and click Update Password | Show warning message that passwords don’t match | Pass
-| Account | On the edit password page enter password(s) that are too short and click Update Password | Show warning message that passwords are too short | Pass
-| Account | On another users profile page click Follow next to the username | Profile is now followed by user and number of followers increases by 1 | Pass
-| Account | On another users profile page click Unfollow next to the username | Profile is now unfollowed by user and number of followers decreases by 1 | Pass
-| Account | Click on Follow next to username on popular profiles widget | button changes to Unfollow | Pass
-| Account | Click on Unfollow next to username on popular profiles widget | button changes to Follow | Pass
-| Account | On profile page click on Advertisements below profile information | Displays all advertisements published by the user | Pass
-| Account | On profile page click on Posts below profile information | Displays all posts published by the user | Pass
+| Account | On own profile page click on meatball menu next to the profile name | Shows dropdown with three options to edit: profile, username or password | Pass
+| Account | Click on “Edit Profile” in the meatball menu | Opens Edit Profile page | Pass
+| Account | On the Edit Profile page, change the image or bio and click Update Profile | Returns to the profile page with updated profile | Pass
+| Account | Click on “Edit Username” in the meatball menu | Opens Edit Username page | Pass
+| Account | On the Edit Username page click Cancel | Returns to the profile page without any changes | Pass
+| Account | On the Edit Username page change the username to a name that’s not already taken and click Update Username | Returns to the profile page with an updated username | Pass
+| Account | On the Edit Username page change the username to an already taken name and click Update Username | Warning message shows that the username already exists | Pass
+| Account | On the Edit Username page remove username and click Update Username | Warning message shows that the input field can’t be blank | Pass
+| Account | Click on “Edit Password” in the meatball menu | Opens Edit Password page | Pass
+| Account | On the Edit Password page click Cancel | Returns to the profile page without any changes | Pass
+| Account | On the Edit Password page click Update Password without entering passwords | Shows warning message that input field(s) can’t be blank | Pass
+| Account | On the Edit Password page enter two different passwords and click Update Password | Shows warning message that passwords don’t match | Pass
+| Account | On the Edit Password page enter password(s) that are too short and click Update Password | Shows warning message that passwords are too short | Pass
+| Account | On another user’s profile page click Follow next to the username while being logged in | Profile is now followed by the user and number of followers increases by 1 | Pass
+| Account | On another user’s profile page that is followed click Unfollow next to the username while being logged in | Profile is now unfollowed by the user and number of followers decreases by 1 | Pass
+| Account | Click on Follow next to a username on Popular Profiles widget while being logged in | Button changes to Unfollow | Pass
+| Account | Click on Unfollow next to a username on Popular Profiles widget while being logged in | Button changes to Follow | Pass
+| Account | On profile page click on “Advertisements” tab below profile information | Displays all advertisements published by the user | Pass
+| Account | On profile page click on “Posts” tab below profile information | Displays all posts published by the user | Pass
+| 404 | Type incorrect url | Show 404 message | Pass
 
 ## Technologies Used
 
@@ -213,12 +215,12 @@ PlantLife's project mainly relies on:
 - [Heroku](https://www.heroku.com/)
 - [Git](https://git-scm.com/)
 
-As part of React, different Front-End libraries were used throughout the project:
+As part of React, different frontend libraries were used throughout the project:
 
-- [React Bootstrap](https://react-bootstrap-v4.netlify.app/) - Used to structure and style the application 
-- [React Router Dom](https://reactrouter.com/en/6.23.0/start/overview) - After clicking a link, URL updates without browser refresh
+- [React Bootstrap](https://react-bootstrap-v4.netlify.app/) - Used to structure and style the application
+- [React Router Dom](https://reactrouter.com/en/6.23.0/start/overview) - URL updates without browser refresh after clicking on links
 - [Axios](https://www.npmjs.com/package/axios) - Sends requests from React project to the API
-- [Infinite Scroll](https://www.npmjs.com/package/react-infinite-scroll-component) - Instead of pagination loads new content by scrolling down
+- [Infinite Scroll](https://www.npmjs.com/package/react-infinite-scroll-component) - Loads new content by scrolling down instead of pagination
 - [jwt-decode](https://www.npmjs.com/package/jwt-decode) - Decodes JSON Web Tokens (JWT)
 
 
@@ -244,7 +246,8 @@ The media and content pieces were created with the help of:
 2. Click on the top right button “New” and select “Create new app”
 3. Enter app name and choose your region
 4. Click on the “Create app” button
-5. Go to “Settings” and add config vars (if necessary) and buildpacks
+5. Go to “Settings” and add buildpack
+    1. heroku/nodejs
 6. Go to “Deploy” section and connect to your GitHub account
 7. Decide between automatic or manual deployment and click on the corresponding button
 8. If the build is completed successfully, you should see a button to view the deployed application
