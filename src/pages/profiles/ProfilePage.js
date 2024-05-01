@@ -69,7 +69,7 @@ function ProfilePage() {
         <>
             <Row noGutters className="align-items-center mb-4">
                 <Col md={2} xs={3}>
-                    <Image className={styles.ProfileImage} roundedCircle src={profile?.profile_image} />
+                    <Image className={styles.ProfileImage} roundedCircle src={profile?.profile_image} alt="profile image" />
                 </Col>
                 <Col md={5} xs={4}>
                     <p className={styles.ProfileOwner}>{profile?.owner}</p>

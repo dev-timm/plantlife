@@ -70,16 +70,16 @@ function PostCreateForm() {
     const textFields = (
         <div>
             <Form.Group>
-                <Form.Label className={styles.Label}>Title</Form.Label>
-                <Form.Control className={styles.Input} type="text" name="title" value={title} onChange={handleChange} />
+                <Form.Label className={styles.Label} htmlFor="post-title">Title</Form.Label>
+                <Form.Control className={styles.Input} type="text" id="post-title" name="title" value={title} onChange={handleChange} />
             </Form.Group>
             {errors?.title?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>{message}</Alert>
             ))}
 
             <Form.Group>
-                <Form.Label className={styles.Label}>Content</Form.Label>
-                <Form.Control className={styles.Input} as="textarea" rows={6} name="content" value={content} onChange={handleChange} />
+                <Form.Label className={styles.Label} htmlFor="post-content">Content</Form.Label>
+                <Form.Control className={styles.Input} as="textarea" rows={6} id="post-content" name="content" value={content} onChange={handleChange} />
             </Form.Group>
             {errors?.content?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>

@@ -64,7 +64,7 @@ function AdvertisementsPage({ filter = "" }) {
                 </Row>
                 <Row>
                     <Col>
-                        <Image className={styles.SearchIcon} src={SearchIcon} />
+                        <Image className={styles.SearchIcon} src={SearchIcon} alt="Search Icon" />
                         <Form
                             className={styles.SearchBar}
                             onSubmit={(event) => event.preventDefault()}

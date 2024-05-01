@@ -61,10 +61,11 @@ const UserPasswordForm = () => {
           <h1 className={styles.Title}>Change Password</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group>
-              <Form.Label className={formStyles.Label}>New Password</Form.Label>
+              <Form.Label className={formStyles.Label} htmlFor="new-password">New Password</Form.Label>
               <Form.Control className={formStyles.Input}
                 placeholder="new password"
                 type="password"
+                id="new-password"
                 value={new_password1}
                 onChange={handleChange}
                 name="new_password1"
@@ -78,10 +79,11 @@ const UserPasswordForm = () => {
             ))}
 
             <Form.Group>
-              <Form.Label className={formStyles.Label}>Confirm password</Form.Label>
+              <Form.Label className={formStyles.Label} htmlFor="confirm-new-password">Confirm password</Form.Label>
               <Form.Control className={formStyles.Input}
                 placeholder="confirm new password"
                 type="password"
+                id="confirm-new-password"
                 value={new_password2}
                 onChange={handleChange}
                 name="new_password2"

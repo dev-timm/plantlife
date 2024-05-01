@@ -94,31 +94,31 @@ function AdvertisementEditForm() {
     const textFields = (
         <div>
             <Form.Group>
-                <Form.Label className={styles.Label}>Title</Form.Label>
-                <Form.Control className={styles.Input} type="text" name="title" value={title} onChange={handleChange} />
+                <Form.Label className={styles.Label} htmlFor="edit-ad-title">Title</Form.Label>
+                <Form.Control className={styles.Input} type="text" id="edit-ad-title" name="title" value={title} onChange={handleChange} />
             </Form.Group>
             {errors?.title?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>{message}</Alert>
             ))}
 
             <Form.Group>
-                <Form.Label className={styles.Label}>Plant Type</Form.Label>
-                <Form.Control className={styles.Input} type="text" name="plant_type" value={plant_type} onChange={handleChange} />
+                <Form.Label className={styles.Label} htmlFor="edit-ad-type">Plant Type</Form.Label>
+                <Form.Control className={styles.Input} type="text" id="edit-ad-type" name="plant_type" value={plant_type} onChange={handleChange} />
             </Form.Group>
             {errors?.plant_type?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>{message}</Alert>
             ))}
 
             <Form.Group>
-                <Form.Label className={styles.Label}>Price</Form.Label>
-                <Form.Control className={styles.Input} type="text" name="price" value={price} onChange={handleChange} />
+                <Form.Label className={styles.Label} htmlFor="edit-ad-price">Price</Form.Label>
+                <Form.Control className={styles.Input} type="text" id="edit-ad-price" name="price" value={price} onChange={handleChange} />
             </Form.Group>
             {errors?.price?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>{message}</Alert>
             ))}
 
-            <Form.Label className={styles.Label}>Availability</Form.Label>
-            <Form.Control as="select" className={`${styles.Input} text-capitalize`} defaultValue="default" name="availability" onChange={handleChange}>
+            <Form.Label className={styles.Label} htmlFor="edit-ad-availability">Availability</Form.Label>
+            <Form.Control as="select" className={`${styles.Input} text-capitalize`} defaultValue="default" id="edit-ad-availability" name="availability" onChange={handleChange}>
                 <option value="default" disabled>Current Status: {availabilityText}</option>
                 <option value="available">Available</option>
                 <option value="reserved">Reserved</option>
@@ -129,16 +129,16 @@ function AdvertisementEditForm() {
             ))}
 
             <Form.Group>
-                <Form.Label className={styles.Label}>Contact</Form.Label>
-                <Form.Control className={styles.Input} type="text" name="contact" value={contact} onChange={handleChange} />
+                <Form.Label className={styles.Label} htmlFor="edit-ad-contact">Contact</Form.Label>
+                <Form.Control className={styles.Input} type="text" id="edit-ad-contact" name="contact" value={contact} onChange={handleChange} />
             </Form.Group>
             {errors?.contact?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>{message}</Alert>
             ))}
 
             <Form.Group>
-                <Form.Label className={styles.Label}>Content</Form.Label>
-                <Form.Control className={styles.Input} as="textarea" rows={6} name="content" value={content} onChange={handleChange} />
+                <Form.Label className={styles.Label} htmlFor="edit-ad-content">Content</Form.Label>
+                <Form.Control className={styles.Input} as="textarea" rows={6} id="edit-ad-content" name="content" value={content} onChange={handleChange} />
             </Form.Group>
             {errors?.content?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
@@ -164,7 +164,7 @@ function AdvertisementEditForm() {
                     <Container className={`${appStyles.Card} ${styles.Container} d-flex flex-column`}>
                         <Form.Group className="text-center">
                             <figure>
-                                <Image className={appStyles.Image} src={ad_image} rounded />
+                                <Image className={appStyles.Image} src={ad_image} alt="photo" rounded />
                             </figure>
                             <div>
                                 <Form.Label className={`${btnStyles.Button} ${btnStyles.Primary} btn`} htmlFor="image-upload">

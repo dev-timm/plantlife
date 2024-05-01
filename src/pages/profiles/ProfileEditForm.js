@@ -87,8 +87,8 @@ const ProfileEditForm = () => {
     const textFields = (
         <>
             <Form.Group>
-                <Form.Label className={styles.Label}>Bio</Form.Label>
-                <Form.Control className={styles.Input} as="textarea" value={bio} onChange={handleChange} name="bio" rows={7} />
+                <Form.Label className={styles.Label} htmlFor="bio">Bio</Form.Label>
+                <Form.Control className={styles.Input} as="textarea" value={bio} onChange={handleChange} name="bio" id="bio" rows={7} />
             </Form.Group>
             {errors?.bio?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
@@ -115,7 +115,7 @@ const ProfileEditForm = () => {
                         <Form.Group className="text-center">
                             {profile_image && (
                                 <figure>
-                                    <Image src={profile_image} fluid />
+                                    <Image src={profile_image} alt="profile image" fluid />
                                 </figure>
                             )}
                             <div>

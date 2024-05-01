@@ -78,50 +78,52 @@ function AdvertisementCreateForm() {
     const textFields = (
         <div>
             <Form.Group>
-                <Form.Label className={styles.Label}>Title</Form.Label>
-                <Form.Control className={styles.Input} type="text" name="title" value={title} onChange={handleChange} />
+                <Form.Label className={styles.Label} htmlFor="ad-title">Title</Form.Label>
+                <Form.Control className={styles.Input} type="text" name="title" id="ad-title" value={title} onChange={handleChange} />
             </Form.Group>
             {errors?.title?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>{message}</Alert>
             ))}
 
             <Form.Group>
-                <Form.Label className={styles.Label}>Plant Type</Form.Label>
-                <Form.Control className={styles.Input} type="text" name="plant_type" value={plant_type} onChange={handleChange} />
+                <Form.Label className={styles.Label} htmlFor="ad-type">Plant Type</Form.Label>
+                <Form.Control className={styles.Input} type="text" name="plant_type" id="ad-type" value={plant_type} onChange={handleChange} />
             </Form.Group>
             {errors?.plant_type?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>{message}</Alert>
             ))}
 
             <Form.Group>
-                <Form.Label className={styles.Label}>Price</Form.Label>
-                <Form.Control className={styles.Input} type="text" name="price" value={price} onChange={handleChange} />
+                <Form.Label className={styles.Label} htmlFor="ad-price">Price</Form.Label>
+                <Form.Control className={styles.Input} type="text" name="price" id="ad-price" value={price} onChange={handleChange} />
             </Form.Group>
             {errors?.price?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>{message}</Alert>
             ))}
 
-            <Form.Label className={styles.Label}>Availability</Form.Label>
-            <Form.Control as="select" className={styles.Input} name="availability" onChange={handleChange}>
+            <Form.Group>
+                <Form.Label className={styles.Label} htmlFor="ad-availability">Availability</Form.Label>
+                <Form.Control as="select" className={styles.Input} name="availability" id="ad-availability" onChange={handleChange}>
                     <option value="available">Available</option>
                     <option value="reserved">Reserved</option>
                     <option value="not_available">Not Available</option>
                 </Form.Control>
+            </Form.Group>
             {errors?.availability?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>{message}</Alert>
             ))}
 
             <Form.Group>
-                <Form.Label className={styles.Label}>Contact</Form.Label>
-                <Form.Control className={styles.Input} type="text" name="contact" value={contact} onChange={handleChange} />
+                <Form.Label className={styles.Label} htmlFor="ad-contact">Contact</Form.Label>
+                <Form.Control className={styles.Input} type="text" name="contact" id="ad-contact" value={contact} onChange={handleChange} />
             </Form.Group>
             {errors?.contact?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>{message}</Alert>
             ))}
 
             <Form.Group>
-                <Form.Label className={styles.Label}>Content</Form.Label>
-                <Form.Control className={styles.Input} as="textarea" rows={6} name="content" value={content} onChange={handleChange} />
+                <Form.Label className={styles.Label} htmlFor="ad-content">Content</Form.Label>
+                <Form.Control className={styles.Input} as="textarea" rows={6} name="content" id="ad-content" value={content} onChange={handleChange} />
             </Form.Group>
             {errors?.content?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>

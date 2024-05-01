@@ -84,16 +84,16 @@ function PostEditForm() {
     const textFields = (
         <div>
             <Form.Group>
-                <Form.Label className={styles.Label}>Title</Form.Label>
-                <Form.Control className={styles.Input} type="text" name="title" value={title} onChange={handleChange} />
+                <Form.Label className={styles.Label} htmlFor="edit-post-title">Title</Form.Label>
+                <Form.Control className={styles.Input} type="text" name="title" id="edit-post-title" value={title} onChange={handleChange} />
             </Form.Group>
             {errors?.title?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>{message}</Alert>
             ))}
 
             <Form.Group>
-                <Form.Label className={styles.Label}>Content</Form.Label>
-                <Form.Control className={styles.Input} as="textarea" rows={6} name="content" value={content} onChange={handleChange} />
+                <Form.Label className={styles.Label} htmlFor="edit-post-content">Content</Form.Label>
+                <Form.Control className={styles.Input} as="textarea" rows={6} name="content" id="edit-post-content" value={content} onChange={handleChange} />
             </Form.Group>
             {errors?.content?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
@@ -119,7 +119,7 @@ function PostEditForm() {
                     <Container className={`${appStyles.Card} ${styles.Container} d-flex flex-column`}>
                         <Form.Group className="text-center">
                                     <figure>
-                                        <Image className={appStyles.Image} src={post_image} rounded />
+                                        <Image className={appStyles.Image} src={post_image} alt="photo" rounded />
                                     </figure>
                                     <div>
                                         <Form.Label className={`${btnStyles.Button} ${btnStyles.Primary} btn`} htmlFor="image-upload">

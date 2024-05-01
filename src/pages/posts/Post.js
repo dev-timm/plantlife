@@ -289,7 +289,7 @@ const Post = (props) => {
                         </OverlayTrigger>
                     )}
                     {likes_count}
-                    <Link className="ml-2" to={`/posts/${id}`}>
+                    <Link className="ml-2" to={`/posts/${id}`} aria-label="Comment">
                         <CommentIcon fill='#152E21' />
                     </Link>
                     {comments_count}

@@ -135,7 +135,7 @@ const Advertisement = (props) => {
                 </Row>
                 <Row>
                     <Col>
-                        <h6>Addiotnal Notes</h6>
+                        <h6>Additional Notes</h6>
                         {content && <Card.Text>{content}</Card.Text>}
                     </Col>
                 </Row>
