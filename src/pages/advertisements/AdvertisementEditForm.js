@@ -44,7 +44,7 @@ function AdvertisementEditForm() {
         };
 
         handleMount();
-    }, [history, id])
+    }, [history, id]);
 
     const handleChange = (event) => {
         setAdvertisementData({
@@ -89,7 +89,7 @@ function AdvertisementEditForm() {
         }
     };
 
-    const availabilityText = availability.replaceAll('_', ' ')
+    const availabilityText = availability.replaceAll('_', ' ');
 
     const textFields = (
         <div>

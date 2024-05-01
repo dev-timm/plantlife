@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import { Alert } from "react-bootstrap";
 
 import btnStyles from "../../styles/Button.module.css";
-import formStyles from "../../styles/Form.module.css"
+import formStyles from "../../styles/Form.module.css";
 
 import { axiosRes } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
@@ -29,8 +29,8 @@ function ReportCreateForm(props) {
                 post,
                 "report_reason": reportReason,
             });
-            setIsPostReported(true)
-            setReportModalShow(false)
+            setIsPostReported(true);
+            setReportModalShow(false);
         } catch (err) {
             // console.log(err);
             if (err.response?.status !== 401) {

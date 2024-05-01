@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 
 import Button from "react-bootstrap/Button";
 
-import styles from '../../styles/Profile.module.css'
+import styles from '../../styles/Profile.module.css';
 import btnStyles from "../../styles/Button.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Avatar from "../../components/Avatar";
@@ -14,7 +14,7 @@ import { useSetProfileData } from "../../contexts/ProfileDataContext";
 
 export const Profile = (props) => {
     const { profile, imageSize = 48 } = props;
-    const { id, profile_image, owner } = profile
+    const { id, profile_image, owner } = profile;
 
     return (
         <Row noGutters className={`${styles.Divider} align-items-center pb-4 pt-4`}>

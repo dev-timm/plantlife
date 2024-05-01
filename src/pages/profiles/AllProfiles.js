@@ -12,9 +12,9 @@ import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosReq } from "../../api/axiosDefaults";
 
-import Image from 'react-bootstrap/Image'
+import Image from 'react-bootstrap/Image';
 import styles from "../../styles/Form.module.css";
-import SearchIcon from "../../assets/icon-search.svg"
+import SearchIcon from "../../assets/icon-search.svg";
 import { Form } from "react-bootstrap";
 
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";

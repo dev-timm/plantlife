@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import logo from '../assets/logo.svg';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
 import btnStyles from "../styles/Button.module.css";
 import styles from '../styles/NavBar.module.css';
 import { NavLink } from 'react-router-dom';
@@ -42,17 +42,17 @@ const NavBar = () => {
         }
     };
 
-    const [width, setWidth] = useState(0)
+    const [width, setWidth] = useState(0);
 
     useEffect(() => {
-        const handleResize = () => setWidth(window.innerWidth)
-        window.addEventListener("resize", handleResize)
-        handleResize()
+        const handleResize = () => setWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+        handleResize();
 
         return () => {
-            window.removeEventListener("resize", handleResize)
-        }
-    }, [setWidth])
+            window.removeEventListener("resize", handleResize);
+        };
+    }, [setWidth]);
 
     const loggedIn = <>
         <Nav className="mr-auto">
@@ -138,4 +138,4 @@ const NavBar = () => {
     </Navbar>
 };
 
-export default NavBar
+export default NavBar;

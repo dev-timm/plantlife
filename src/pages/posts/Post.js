@@ -18,7 +18,7 @@ import { ReactComponent as ReportIcon } from '../../assets/icon-report.svg';
 import { axiosRes, axiosReq } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import Modal from 'react-bootstrap/Modal'
+import Modal from 'react-bootstrap/Modal';
 
 const Post = (props) => {
     const {
@@ -47,8 +47,8 @@ const Post = (props) => {
     const [isPostReported, setIsPostReported] = useState(false);
 
     const handleEdit = () => {
-        history.push(`/posts/${id}/edit`)
-    }
+        history.push(`/posts/${id}/edit`);
+    };
 
     const handleDelete = async () => {
         try {
@@ -73,11 +73,11 @@ const Post = (props) => {
         } catch (err) {
             // console.log(err)
         }
-    }
+    };
 
     const handleUnbookmark = async () => {
         try {
-            await axiosRes.delete(`/bookmarks/${bookmark_id}/`)
+            await axiosRes.delete(`/bookmarks/${bookmark_id}/`);
             setPosts((prevPosts) => ({
                 ...prevPosts,
                 results: prevPosts.results.map((post) => {
@@ -89,7 +89,7 @@ const Post = (props) => {
         } catch (err) {
             // console.log(err)
         }
-    }
+    };
 
     const handleLike = async () => {
         try {
@@ -105,11 +105,11 @@ const Post = (props) => {
         } catch (err) {
 
         }
-    }
+    };
 
     const handleUnlike = async () => {
         try {
-            await axiosRes.delete(`/likes/${like_id}/`)
+            await axiosRes.delete(`/likes/${like_id}/`);
             setPosts((prevPosts) => ({
                 ...prevPosts,
                 results: prevPosts.results.map((post) => {
@@ -121,20 +121,20 @@ const Post = (props) => {
         } catch (err) {
             // console.log(err);
         }
-    }
+    };
 
     useEffect(() => {
         const checkReports = async () => {
             try {
-                const { data } = await axiosReq.get("/reports/")
-                const checkReportPresence = data.filter(report => report.post === id && report.owner === currentUser?.username)
+                const { data } = await axiosReq.get("/reports/");
+                const checkReportPresence = data.filter(report => report.post === id && report.owner === currentUser?.username);
                 if (checkReportPresence.length) {
-                    setIsPostReported(true)
+                    setIsPostReported(true);
                 }
             } catch (err) {
                 // console.log(err)
             }
-        }
+        };
         checkReports();
     }, [currentUser?.username, id]);
 
@@ -164,11 +164,11 @@ const Post = (props) => {
                 <OverlayTrigger
                     placement="top"
                     overlay={<Tooltip>Log in to report posts!</Tooltip>}>
-                    <ReportIcon fill='#152E21' />
+                    <ReportIcon fill='#152E21'/>
                 </OverlayTrigger>
-            )
+            );
         }
-    }
+    };
 
     function ReportModal(props) {
         return (

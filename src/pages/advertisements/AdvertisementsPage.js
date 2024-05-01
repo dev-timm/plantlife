@@ -4,7 +4,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
-import Image from 'react-bootstrap/Image'
+import Image from 'react-bootstrap/Image';
 
 import appStyles from "../../App.module.css";
 import styles from "../../styles/Form.module.css";
@@ -14,7 +14,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-import SearchIcon from "../../assets/icon-search.svg"
+import SearchIcon from "../../assets/icon-search.svg";
 import Asset from "../../components/Asset";
 import { Form } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";

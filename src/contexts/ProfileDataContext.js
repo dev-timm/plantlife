@@ -37,7 +37,7 @@ export const ProfileDataProvider = ({ children }) => {
     } catch (err) {
       // console.log(err)
     }
-  }
+  };
 
   const handleUnfollow = async (clickedProfile) => {
     try {

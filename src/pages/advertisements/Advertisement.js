@@ -16,7 +16,7 @@ import Button from "react-bootstrap/Button";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import Modal from 'react-bootstrap/Modal'
+import Modal from 'react-bootstrap/Modal';
 
 const Advertisement = (props) => {
     const {
@@ -40,8 +40,8 @@ const Advertisement = (props) => {
     const history = useHistory();
 
     const handleEdit = () => {
-        history.push(`/advertisements/${id}/edit`)
-    }
+        history.push(`/advertisements/${id}/edit`);
+    };
 
     const handleDelete = async () => {
         try {
@@ -77,7 +77,7 @@ const Advertisement = (props) => {
                 </Modal.Body>
             </Modal>
         );
-    }
+    };
 
     return (
         <Card className={styles.Advertisement}>
@@ -147,6 +147,6 @@ const Advertisement = (props) => {
             </Card.Body>
         </Card>
     );
-};
+}
 
 export default Advertisement;

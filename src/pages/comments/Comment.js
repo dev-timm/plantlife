@@ -3,7 +3,7 @@ import { Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import Button from "react-bootstrap/Button";
-import Modal from 'react-bootstrap/Modal'
+import Modal from 'react-bootstrap/Modal';
 import CommentEditForm from "./CommentEditForm";
 import styles from "../../styles/Comment.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -106,6 +106,6 @@ const Comment = (props) => {
             </Media>
         </>
     );
-}
+};
 
 export default Comment;

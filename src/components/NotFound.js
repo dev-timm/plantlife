@@ -19,5 +19,5 @@ export const NotFound = () => {
                 </Container>
             </Col>
         </Row>
-    )
-}
+    );
+};
