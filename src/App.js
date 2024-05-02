@@ -39,7 +39,7 @@ function App() {
           />
           <Route
             exact
-            path="/Feed"
+            path="/feed"
             render={() => (
               <PostsPage filter={`owner__followed__owner__profile=${profile_id}&`} />
             )}
