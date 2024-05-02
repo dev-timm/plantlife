@@ -43,15 +43,33 @@ The primary color is a vibrant green that represents nature and plants. It has a
 ### Sign Up
 Clicking on the Sign Up link on the NavBar or the link below the Sign In page will bring the user to the Sign Up page. There the user can create an account by entering a username, password and the same password again. If the user already has an account, they can click on the link below the button which will bring them to the Sign In page.
 
+#### User Stories
+- [Add sign up functionality](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56692116)
+
 ![An image of the sign up page](src/assets/README/sign-up.png)
 
 ### Sign In
 Clicking on the Sign In link on the NavBar or the link below the Sign Up page will bring the user to the Sign In page. There the user can log in to their account by entering their username and password. If the user does not have an account yet, they can click on the link below the button which will bring them to the Sign Up page.
 
+#### User Stories
+- [Add sign in functionality](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56691725)
+
+- [Refresh access tokens](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=57205321)
+
+- [Add sign out functionality](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56691857)
+
 ![An image of the sign in page](src/assets/README/sign-in.png)
 
 ### NavBar
 On top of each page is the NavBar. There are two versions of the NavBar - one is displayed when the user is not signed in and the other one is shown when the user is currently signed in. Whenever the user is not signed in they only see the logo with the sign in and sign up button. If the user is signed in they see a collection of all available links such as Feed, Bookmarks, Plant Lovers and Marketplace. Additionally users have access to a button to create a post or advertisement as well as their profile picture which gives them the option to view their profile or log out.
+
+#### User Stories
+- [Implement NavBar](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56691401)
+
+- [Show different NavBar for signed in users](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=57210776)
+
+- [Add routing](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56826745)
+
 
 ![An image of the NavBar when user is logged out](src/assets/README/navbar-1.png)
 ![An image of the NavBar when user is logged in](src/assets/README/navbar-2.png)
@@ -59,55 +77,133 @@ On top of each page is the NavBar. There are two versions of the NavBar - one is
 ### Homepage
 The Homepage is the first page visible to the users whether they are signed in or not. The page shows all posts ordered by date, a search bar and an order dropdown. There is also a widget on the side that displays popular users. Posts can be filtered through search by post title and username. Moreover, they can be ordered by date, number of likes and number of comments. The Homepage can be accessed by clicking on the Logo in the NavBar.
 
+#### User Stories
+- [View a list of posts](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56664009)
+
+- [Search for posts](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56703658)
+
+- [Order list of posts](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=58800365)
+
+- [Report posts](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=58799923)
+
+- [Add infinite scroll](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56704408)
+
+
 ![An image of the homepage](src/assets/README/homepage.png)
 
 #### Feed
 On the Feed page the users see posts from people they follow. Additionally, it contains the search bar, order dropdown and popular profiles widget. Posts can be filtered through search by post title and username. Moreover, they can be ordered by date, number of likes and number of comments.
+
+#### User Stories
+- [View post feed](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=59446784)
 
 ![An image of the feed](src/assets/README/feed.png)
 
 #### Bookmarks
 The Bookmarks page displays all posts the user has saved to view at a later time. Bookmarks can easily be created by clicking on the icon on the bottom right of a post. Clicking again will remove it from the Bookmarks. Additionally, the page contains the the search bar, order dropdown and popular profiles widget. Posts can be filtered through search by post title and username. Moreover, they can be ordered by date, number of likes and number of comments.
 
+#### User Stories
+- [Bookmark a post](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56704248)
+- [View list of bookmarks](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56704029)
+
 ![An image of the bookmarks page](src/assets/README/bookmarks.png)
 
 #### Plant Lovers
 The Plant Lovers page gives users a list of all signed up users on the platform. By clicking on the “View Profile” link the user is sent to the profile page. The page also includes a search bar and the popular users widget. Profiles can be filtered through search by username.
+
+#### User Stories
+- [View list of users](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=58799701)
 
 ![An image of the plant lovers page](src/assets/README/plant-lovers.png)
 
 ### Marketplace
 The Marketplace displays advertisements published by users. It is a place where users can offer and buy plants from each other. The page also includes a search bar and the popular users widget. Ads can be filtered through search by ad title and username. Moreover, they can be ordered by date and price.
 
+#### User Stories
+- [View list of ads](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=60328492)
+
+- [Search for ads](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=60332912)
+
+- [Order list of ads](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=61611988)
+
 ![An image of the marketplace](src/assets/README/marketplace.png)
 
 ### Like a Post
 Each post can be liked by users who are signed in. Likes are placed at the bottom left with a counter next to it. Clicking once will add a like and clicking again will remove it. When a post is liked, the heart icon will turn green. Owner of a post is not able to like their own post.
+
+#### User Stories
+- [Like a post](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56664401)
 
 ![An image of a post’s like section](src/assets/README/like.png)
 
 ### CRUD: Post
 Signed in users have the possibility to create posts by clicking on the button in the NavBar. Users can add an image, title and content to a post. After creating the post users have the possibility to edit the post and/or delete it. Posts can be viewed on the homepage, feed or under bookmarks.
 
+#### User Stories
+- [Create Post](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56663091)
+
+- [Edit Post](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56663334)
+
+- [Delete Post](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56663521)
+
+- [View Post](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=57462362)
+
 ![An image of a post form](src/assets/README/post-crud.png)
 
 ### CRUD: Comment
 Each post can be commented by users who are signed in. Comment feature is placed at the bottom left together a counter next to it. After clicking on a post and scrolling down, users can view, create, edit and delete comments. Adding or removing a comment will impact the count next to the comment icon.
+
+#### User Stories
+- [Create Comment](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56663722)
+
+- [Edit Comment](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56701612)
+
+- [Delete Comment](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56701827)
+
+- [View Comment](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56702360)
 
 ![An image of the comments section](src/assets/README/comment.png)
 
 ### CRUD: Advertisements
 Signed in users have the possibility to create advertisements by clicking on the button in the NavBar. Users can add an image, title, plant type, price, availability, contact and content to an advertisement. After creating the advertisement users have the possibility to edit the ad and/or delete it. Ads can be viewed on the Marketplace page.
 
+#### User Stories
+- [Create Ad](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=60327326)
+
+- [Edit Ad](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=60327726)
+
+- [Delete Ad](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=60328108)
+
+- [View Ad](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=59950261)
+
 ![An image of the advertisement form](src/assets/README/ad-crud.png)
 
 ### Profile Page
 The Profile Page enables users to customize their own profile and view profiles from other users. Information include username, bio, number of posts, number of followers and number of following. If the user is the profile owner they can edit the profile, username and password by clicking on the meatball menu on the right side. Additionally there is a section where users can see the posts and advertisements published by the profile owner. There is also a widget on the side that displays popular users.
 
+#### User Stories
+- [View Profile](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56693839)
+
+- [Edit Profile](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56694099)
+
+- [Edit Username](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=58798833)
+
+- [Edit Password](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=58798559)
+
+- [View all posts by user](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56703297)
+
+- [View all ads by user](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=61612145)
+
+- [Follow a user](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56694430)
+
+- [Most followed profiles](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=56702958)
+
 ![An image of the profile page](src/assets/README/profile.png)
 
 ### 404 Page
 A 404 page is displayed whenever the user has entered a wrong url.
+
+- [Add 404 page](https://github.com/users/dev-timm/projects/4/views/1?pane=issue&itemId=61611475)
 
 ![An image of the 404 page](src/assets/README/404.png)
 
@@ -116,6 +212,16 @@ A 404 page is displayed whenever the user has entered a wrong url.
 - Notification center to keep users up to date about new posts from people they follow etc.
 - Display posts, ads and comments as a modal for a more seamless experience
 - Add tags to posts so that it’s even easier to filter posts by topics relevant to users
+
+### Reusable Components
+| Name | Purpose | Location
+| --- | --- | --- | 
+| Asset | Lets users add images on forms and provides loading indication in form of a spinner | AdvertisementCreateForm, AdvertisementsPage, PostCreateForm, PostPage, PostsPage, PopularProfiles, ProfilePage, ProfilesPage
+| Avatar | Displays  user's profile picture | NavBar, Advertisement, Comment, CommentCreateForm, Post, Profile
+| MoreDropdown / ProfileEditDropdown | By clicking on it provides further options | Advertisment, Comment, Post, ProfilePage
+| NavBar | The main way of navigating through the application | Present on all pages
+| NoFindings | Lets users know that no search results and/or no data is available | AdvertisementsPage, PostsPage, ProfilePage, ProfilesPage
+| NotFound | Lets users know that URL is not valid and provides a link back to the homepage | When wrong url is entered
 
 
 ## Testing
