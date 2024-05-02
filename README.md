@@ -349,7 +349,6 @@ Additionally, the following platforms and tools were used while working on the p
 - [GitHub](https://github.com/)
 - [Google Fonts](https://fonts.google.com/)
 - [Figma](https://www.figma.com/)
-- [Autoprefixer CSS](https://autoprefixer.github.io/)
 
 The media and content pieces were created with the help of:
 

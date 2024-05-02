@@ -30,8 +30,8 @@ export const Profile = (props) => {
                 <Link to={`/profiles/${id}`}>View Profile</Link>
             </Col>
         </Row>
-    )
-}
+    );
+};
 
 
 export const PopularProfile = (props) => {
@@ -63,6 +63,6 @@ export const PopularProfile = (props) => {
                 }
             </div>
         </div>
-    )
-}
+    );
+};
 

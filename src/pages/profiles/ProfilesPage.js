@@ -21,7 +21,7 @@ import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { NoFindings } from "../../components/NoFindings";
 
 
-const AllProfiles = ({ filter = "" }) => {
+const ProfilesPage = ({ filter = "" }) => {
     const [profiles, setProfiles] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
@@ -102,7 +102,7 @@ const AllProfiles = ({ filter = "" }) => {
                 <PopularProfiles />
             </Col>
         </Row>
-    )
-}
+    );
+};
 
-export default AllProfiles
+export default ProfilesPage;
